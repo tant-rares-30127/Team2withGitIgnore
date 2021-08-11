@@ -7,7 +7,7 @@ namespace Team2Application.Models
 {
     public class Intern
     {
-        public Intern()
+        public Intern() 
         {
         }
 
