@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Team2Application.Data;
 
 namespace Team2Application.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210816203733_Skill_LibraryResources")]
+    partial class Skill_LibraryResources
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -240,28 +242,6 @@ namespace Team2Application.Data.Migrations
                     b.ToTable("Intern");
                 });
 
-            modelBuilder.Entity("Team2Application.Models.Intern_Skill", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("InternId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SkillId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("InternId");
-
-                    b.HasIndex("SkillId");
-
-                    b.ToTable("Intern_Skill");
-                });
-
             modelBuilder.Entity("Team2Application.Models.LibraryResource", b =>
                 {
                     b.Property<int>("Id")
@@ -293,6 +273,9 @@ namespace Team2Application.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("InternId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -300,6 +283,8 @@ namespace Team2Application.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("InternId");
 
                     b.ToTable("Skill");
                 });
@@ -377,23 +362,15 @@ namespace Team2Application.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Team2Application.Models.Intern_Skill", b =>
+            modelBuilder.Entity("Team2Application.Models.Skill", b =>
                 {
                     b.HasOne("Team2Application.Models.Intern", "Intern")
-                        .WithMany("Intern_Skill")
+                        .WithMany()
                         .HasForeignKey("InternId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Team2Application.Models.Skill", "Skill")
-                        .WithMany("Intern_Skill")
-                        .HasForeignKey("SkillId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Intern");
-
-                    b.Navigation("Skill");
                 });
 
             modelBuilder.Entity("Team2Application.Models.Skill_LibraryResource", b =>
@@ -415,11 +392,6 @@ namespace Team2Application.Data.Migrations
                     b.Navigation("Skill");
                 });
 
-            modelBuilder.Entity("Team2Application.Models.Intern", b =>
-                {
-                    b.Navigation("Intern_Skill");
-                });
-
             modelBuilder.Entity("Team2Application.Models.LibraryResource", b =>
                 {
                     b.Navigation("Skill_LibraryResource");
@@ -427,8 +399,6 @@ namespace Team2Application.Data.Migrations
 
             modelBuilder.Entity("Team2Application.Models.Skill", b =>
                 {
-                    b.Navigation("Intern_Skill");
-
                     b.Navigation("Skill_LibraryResource");
                 });
 #pragma warning restore 612, 618

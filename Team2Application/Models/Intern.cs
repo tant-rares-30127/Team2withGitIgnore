@@ -7,10 +7,6 @@ namespace Team2Application.Models
 {
     public class Intern
     {
-        public Intern()
-        {
-        }
-
         public Intern(int id, string name,  DateTime birthdate, string emailAddress)
         {
             Name = name;
@@ -19,7 +15,6 @@ namespace Team2Application.Models
             EmailAddress = emailAddress;
         }
 
-
         public string Name { get; set; }
 
         public int Id { get; set; }
@@ -27,6 +22,9 @@ namespace Team2Application.Models
         public DateTime Birthdate { get; set; }
 
         public string EmailAddress { get; set; }
+
+        public List<Intern_Skill> Intern_Skill { get; set; }
+
 
         public int GetAge()
         {
