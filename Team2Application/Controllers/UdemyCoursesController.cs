@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,13 @@ namespace Team2Application.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            var client = new RestClient($"https://www.udemy.com/api-2.0/courses/238934/?");
+            string[] chestie = { "1" };
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            IRestResponse response = client.Execute(request);
+            return chestie;
+            /*return ConvertResponseToCourseRecord(response.Content);*/
         }
 
         // GET api/<UdemyCoursesController>/5
