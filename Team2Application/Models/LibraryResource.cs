@@ -15,14 +15,15 @@ namespace Team2Application.Models
 
         public string Url { get; set; }
 
-        public void Play()
-        {
-            /*Starts playing video*/
-        }
+        /*        public void Play()
+                {
+                    *//*Starts playing video*//*
+                }
 
-        public void RetriveInformation()
-        {
-            /*Retrievs information*/
-        }
+                public void RetriveInformation()
+                {
+                    *//*Retrievs information*//*
+                }*/
+        public List<Skill_LibraryResource> Skill_LibraryResources { get; set; }
     }
 }
