@@ -35,7 +35,7 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SkillMatrixUrl)
+                <a href="@Html.DisplayFor(modelItem => item.SkillMatrixUrl)">@Html.DisplayFor(modelItem => item.SkillMatrixUrl)</a>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
