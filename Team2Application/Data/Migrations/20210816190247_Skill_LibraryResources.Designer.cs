@@ -10,8 +10,8 @@ using Team2Application.Data;
 namespace Team2Application.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210810091436_Interns")]
-    partial class Interns
+    [Migration("20210816190247_Skill_LibraryResources")]
+    partial class Skill_LibraryResources
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -284,6 +284,28 @@ namespace Team2Application.Data.Migrations
                     b.ToTable("Skill");
                 });
 
+            modelBuilder.Entity("Team2Application.Models.Skill_LibraryResource", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("LibraryResourceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SkillId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LibraryResourceId");
+
+                    b.HasIndex("SkillId");
+
+                    b.ToTable("Skill_LibraryResource");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -333,6 +355,35 @@ namespace Team2Application.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Team2Application.Models.Skill_LibraryResource", b =>
+                {
+                    b.HasOne("Team2Application.Models.LibraryResource", "LibraryResource")
+                        .WithMany("Skill_LibraryResources")
+                        .HasForeignKey("LibraryResourceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Team2Application.Models.Skill", "Skill")
+                        .WithMany("Skill_LibraryResources")
+                        .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("LibraryResource");
+
+                    b.Navigation("Skill");
+                });
+
+            modelBuilder.Entity("Team2Application.Models.LibraryResource", b =>
+                {
+                    b.Navigation("Skill_LibraryResources");
+                });
+
+            modelBuilder.Entity("Team2Application.Models.Skill", b =>
+                {
+                    b.Navigation("Skill_LibraryResources");
                 });
 #pragma warning restore 612, 618
         }
