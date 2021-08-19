@@ -35,7 +35,7 @@
                 @Html.DisplayFor(modelItem => item.Recommandation)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Url)
+                <a href="@Html.DisplayFor(modelItem => item.Url)">@Html.DisplayFor(modelItem => item.Url)</a>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

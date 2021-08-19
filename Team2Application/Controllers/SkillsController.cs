@@ -26,7 +26,7 @@ namespace Team2Application.Controllers
         {
             var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search=C#");
             string url = "https://www.udemy.com/courses/search/?src=ukw&q=C#";
-            Skill skill = new Skill("C#", "C# courses", url);
+            Skill skill = new Skill("C#", url, "C# courses");
             _context.Add(skill);
             _context.SaveChanges();
         }
@@ -68,6 +68,7 @@ namespace Team2Application.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Name,Id,Description,SkillMatrixUrl")] Skill skill)
         {
+            this.AddingSkills();
             if (ModelState.IsValid)
             {
                 _context.Add(skill);
