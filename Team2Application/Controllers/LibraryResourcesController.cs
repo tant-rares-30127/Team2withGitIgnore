@@ -54,7 +54,7 @@ namespace Team2Application.Controllers
             string specificUrl = (string)item.SelectToken("url");
             string clickableUrl = $"https://www.udemy.com{specificUrl}";
 
-            LibraryResource libraryResource = new LibraryResource(courseTitle, clickableUrl, description);
+            LibraryResource libraryResource = new LibraryResource(courseTitle, description, clickableUrl);
             return libraryResource;
         }
 
@@ -90,8 +90,11 @@ namespace Team2Application.Controllers
         public async Task<IActionResult> Create()
         {
             IEnumerable<LibraryResource> coursesList = this.Get();
-            LibraryResource libraryResource = coursesList.First();
-            _context.Add(libraryResource);
+            foreach(LibraryResource l in coursesList)
+            {
+                _context.Add(l);
+            }
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
