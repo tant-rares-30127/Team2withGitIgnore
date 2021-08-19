@@ -7,6 +7,19 @@ namespace Team2Application.Models
 {
     public class LibraryResource
     {
+
+        public LibraryResource()
+        {
+
+        }
+
+        public LibraryResource(string name, string recommandation, string url)
+        {
+            Name = name;
+            Recommandation = recommandation;
+            Url = url;
+        }
+
         public string Name { get; set; }
 
         public int Id { get; set; }
@@ -19,7 +32,6 @@ namespace Team2Application.Models
                 {
                     *//*Starts playing video*//*
                 }
-
                 public void RetriveInformation()
                 {
                     *//*Retrievs information*//*

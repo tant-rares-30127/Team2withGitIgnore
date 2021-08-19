@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
+using RestSharp;
+using RestSharp.Authenticators;
 using Team2Application.Data;
 using Team2Application.Models;
 
@@ -17,6 +20,43 @@ namespace Team2Application.Controllers
         public LibraryResourcesController(ApplicationDbContext context)
         {
             _context = context;
+        }
+
+
+        [HttpGet]
+        public IEnumerable<LibraryResource> Get()
+        {
+            var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search=C#");
+            client.Authenticator = new HttpBasicAuthenticator("CkaIqUMDHO4Dp96Xc2z1Lwg9BcwS3etRvtHHuGUE", "0iS2boCGNqVoTap046T1r9UzJsVMXxxu4WOwTQDhWpaGrnZCRrwFSlL7YraegarBLM5Qcwq5bm9tAnVRQ2Yh60OExsVZRdXnVrwDub26yLdO0If4ieZ9sBWDmajn7Qq4");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            IRestResponse response = client.Execute(request);
+            IEnumerable<LibraryResource> coursesList = this.ConvertResponseToCourseRecord(response.Content);
+            return coursesList;
+        }
+
+        [NonAction]
+        public IEnumerable<LibraryResource> ConvertResponseToCourseRecord(string content)
+        {
+            var json = JObject.Parse(content);
+            if (json["results"] == null)
+            {
+                throw new Exception("Apikey not valid.");
+            }
+
+            var jsonArray = json["results"].Take(7);
+            return jsonArray.Select(CreatingLibraryResourceFromJToken);
+        }
+
+        private LibraryResource CreatingLibraryResourceFromJToken(JToken item)
+        {
+            string courseTitle = (string)item.SelectToken("title");
+            string description = (string)item.SelectToken("headline");
+            string specificUrl = (string)item.SelectToken("url");
+            string clickableUrl = $"https://www.udemy.com{specificUrl}";
+
+            LibraryResource libraryResource = new LibraryResource(courseTitle,description, clickableUrl);
+            return libraryResource;
         }
 
         // GET: LibraryResources
@@ -43,26 +83,18 @@ namespace Team2Application.Controllers
             return View(libraryResource);
         }
 
-        // GET: LibraryResources/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
         // POST: LibraryResources/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Id,Recommandation,Url")] LibraryResource libraryResource)
+        public async Task<IActionResult> Create()
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(libraryResource);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(libraryResource);
+            IEnumerable<LibraryResource> coursesList = this.Get();
+            LibraryResource libraryResource = coursesList.First();
+            _context.Add(libraryResource);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: LibraryResources/Edit/5
