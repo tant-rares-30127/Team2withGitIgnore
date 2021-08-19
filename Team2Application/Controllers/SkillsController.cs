@@ -22,11 +22,12 @@ namespace Team2Application.Controllers
             _context = context;
         }
 
-        public void AddingSkills()
+        [HttpPost]
+        public void AddingSkills(string skillName)
         {
-            var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search=C#");
-            string url = "https://www.udemy.com/courses/search/?src=ukw&q=C#";
-            Skill skill = new Skill("C#", url, "C# courses");
+            var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search={skillName}");
+            string url = $"https://www.udemy.com/courses/search/?src=ukw&q={skillName}";
+            Skill skill = new Skill(skillName, url, $"{skillName} courses");
             _context.Add(skill);
             _context.SaveChanges();
         }
@@ -56,26 +57,17 @@ namespace Team2Application.Controllers
         }
 
         // GET: Skills/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+
 
         // POST: Skills/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Id,Description,SkillMatrixUrl")] Skill skill)
+        public async Task<IActionResult> Create()
         {
-            this.AddingSkills();
-            if (ModelState.IsValid)
-            {
-                _context.Add(skill);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(skill);
+            this.AddingSkills("C#");
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Skills/Edit/5
