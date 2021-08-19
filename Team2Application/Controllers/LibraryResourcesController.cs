@@ -27,7 +27,8 @@ namespace Team2Application.Controllers
         [HttpGet]
         public IEnumerable<LibraryResource> Get()
         {
-            var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search=java");
+            string skillName = _context.Skill.ToList().First().Name;
+            var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search={skillName}");
             client.Authenticator = new HttpBasicAuthenticator("CkaIqUMDHO4Dp96Xc2z1Lwg9BcwS3etRvtHHuGUE", "0iS2boCGNqVoTap046T1r9UzJsVMXxxu4WOwTQDhWpaGrnZCRrwFSlL7YraegarBLM5Qcwq5bm9tAnVRQ2Yh60OExsVZRdXnVrwDub26yLdO0If4ieZ9sBWDmajn7Qq4");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
