@@ -15,6 +15,7 @@ namespace Team2Application.Data
         public DbSet<Intern> Intern { get; set; }
         public DbSet<Skill> Skill { get; set; }
         public DbSet<LibraryResource> LibraryResource { get; set; }
+        public DbSet<Admin> Admin { get; set; }
 
     }
 }

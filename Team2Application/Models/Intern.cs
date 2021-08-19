@@ -7,13 +7,7 @@ namespace Team2Application.Models
 {
     public class Intern
     {
-        public Intern(int id, string name,  DateTime birthdate, string emailAddress)
-        {
-            Name = name;
-            Id = id;
-            Birthdate = birthdate;
-            EmailAddress = emailAddress;
-        }
+      
 
         public string Name { get; set; }
 
