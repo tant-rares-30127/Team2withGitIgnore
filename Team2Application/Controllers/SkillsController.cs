@@ -22,6 +22,15 @@ namespace Team2Application.Controllers
             _context = context;
         }
 
+        public void AddingSkills()
+        {
+            var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search=C#");
+            string url = "https://www.udemy.com/courses/search/?src=ukw&q=C#";
+            Skill skill = new Skill("C#", "C# courses", url);
+            _context.Add(skill);
+            _context.SaveChanges();
+        }
+
         // GET: Skills
         public async Task<IActionResult> Index()
         {
