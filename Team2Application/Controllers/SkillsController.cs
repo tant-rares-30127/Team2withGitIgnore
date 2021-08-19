@@ -38,27 +38,6 @@ namespace Team2Application.Controllers
             return View(await _context.Skill.ToListAsync());
         }
 
-        // GET: Skills/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var skill = await _context.Skill
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (skill == null)
-            {
-                return NotFound();
-            }
-
-            return View(skill);
-        }
-
-        // GET: Skills/Create
-
-
         // POST: Skills/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
