@@ -23,19 +23,19 @@ namespace Team2Application.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<UdemyCoursesRecord> Get()
+        public IEnumerable<LibraryResource> Get()
         {
             var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search=C#");
             client.Authenticator = new HttpBasicAuthenticator("CkaIqUMDHO4Dp96Xc2z1Lwg9BcwS3etRvtHHuGUE", "0iS2boCGNqVoTap046T1r9UzJsVMXxxu4WOwTQDhWpaGrnZCRrwFSlL7YraegarBLM5Qcwq5bm9tAnVRQ2Yh60OExsVZRdXnVrwDub26yLdO0If4ieZ9sBWDmajn7Qq4");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             IRestResponse response = client.Execute(request);
-            IEnumerable<UdemyCoursesRecord> coursesList = this.ConvertResponseToCourseRecord(response.Content);
+            IEnumerable<LibraryResource> coursesList = this.ConvertResponseToCourseRecord(response.Content);
             return coursesList;
         }
 
         [NonAction]
-        public IEnumerable<UdemyCoursesRecord> ConvertResponseToCourseRecord(string content)
+        public IEnumerable<LibraryResource> ConvertResponseToCourseRecord(string content)
         {
             var json = JObject.Parse(content);
             if (json["results"] == null)
@@ -44,18 +44,18 @@ namespace Team2Application.Controllers
             }
 
             var jsonArray = json["results"].Take(7);
-            return jsonArray.Select(CreatingUdemyCoursesRecordFromJToken);
+            return jsonArray.Select(CreatingLibraryResourceFromJToken);
         }
 
-        private UdemyCoursesRecord CreatingUdemyCoursesRecordFromJToken(JToken item)
+        private LibraryResource CreatingLibraryResourceFromJToken(JToken item)
         {
             string courseTitle = (string)item.SelectToken("title");
             string description = (string)item.SelectToken("headline");
             string specificUrl = (string)item.SelectToken("url");
             string clickableUrl = $"https://www.udemy.com{specificUrl}";
 
-            UdemyCoursesRecord udemyCoursesRecord = new UdemyCoursesRecord(courseTitle, clickableUrl, description);
-            return udemyCoursesRecord;
+            LibraryResource libraryResource = new LibraryResource(courseTitle, clickableUrl, description);
+            return libraryResource;
         }
 
         // GET: LibraryResources
@@ -89,9 +89,8 @@ namespace Team2Application.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create()
         {
-            IEnumerable<UdemyCoursesRecord> coursesList = this.Get();
-            UdemyCoursesRecord record = coursesList.First();
-            LibraryResource libraryResource = new LibraryResource(record.Title, record.Description, record.Url);
+            IEnumerable<LibraryResource> coursesList = this.Get();
+            LibraryResource libraryResource = coursesList.First();
             _context.Add(libraryResource);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
