@@ -4,14 +4,19 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1>Index</h1>
-
+<div class="d-inline-flex">
+    <h1 class="d-flex mr-auto">Index</h1>
+    <div class=" d-inline-flex form-outline" style="width:500px; margin-left:300px">
+        <input type="search" id="form1" class="form-control" placeholder="Search"
+               aria-label="Search" />
+        <button type="button" class="btn btn-outline-primary" style="height: fit-content; margin-left: 10px;">Search</button>
+    </div>
+</div>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table table-striped table-bordered table-hover">
+    <thead  class="thead-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
@@ -35,11 +40,11 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SkillMatrixUrl)
+                <a href="@Html.DisplayFor(modelItem => item.SkillMatrixUrl)">@Html.DisplayFor(modelItem => item.SkillMatrixUrl)</a>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-controller="LibraryResources" asp-action="Index">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>

@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
+using RestSharp;
+using RestSharp.Authenticators;
 using Team2Application.Data;
 using Team2Application.Models;
 
@@ -17,6 +20,15 @@ namespace Team2Application.Controllers
         public SkillsController(ApplicationDbContext context)
         {
             _context = context;
+        }
+
+        public void AddingSkills()
+        {
+            var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search=C#");
+            string url = "https://www.udemy.com/courses/search/?src=ukw&q=C#";
+            Skill skill = new Skill("C#", "C# courses", url);
+            _context.Add(skill);
+            _context.SaveChanges();
         }
 
         // GET: Skills
