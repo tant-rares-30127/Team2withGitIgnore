@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Team2Application.Models.LibraryResource>
+﻿@model IEnumerable<Team2Application.Models.Intern>
 
 @{
     ViewData["Title"] = "Index";
@@ -10,17 +10,17 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table table-striped table-bordered table-hover">
-    <thead class="thead-dark">
+<table class="table">
+    <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Recommandation)
+                @Html.DisplayNameFor(model => model.Birthdate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Url)
+                @Html.DisplayNameFor(model => model.EmailAddress)
             </th>
             <th></th>
         </tr>
@@ -32,10 +32,10 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Recommandation)
+                @Html.DisplayFor(modelItem => item.Birthdate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Url)
+                @Html.DisplayFor(modelItem => item.EmailAddress)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
