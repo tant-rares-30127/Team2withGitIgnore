@@ -13,6 +13,8 @@ using Team2Application.Models;
 
 namespace Team2Application.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class LibraryResourcesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,10 +24,11 @@ namespace Team2Application.Controllers
             _context = context;
         }
 
+        // GET: api/<LibraryResourcesController>
         [HttpGet]
-        public IEnumerable<LibraryResource> Get()
+        public IEnumerable<LibraryResource> Get(string skillName)
         {
-            var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search=C#");
+            var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search={skillName}");
             client.Authenticator = new HttpBasicAuthenticator("CkaIqUMDHO4Dp96Xc2z1Lwg9BcwS3etRvtHHuGUE", "0iS2boCGNqVoTap046T1r9UzJsVMXxxu4WOwTQDhWpaGrnZCRrwFSlL7YraegarBLM5Qcwq5bm9tAnVRQ2Yh60OExsVZRdXnVrwDub26yLdO0If4ieZ9sBWDmajn7Qq4");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
@@ -61,11 +64,11 @@ namespace Team2Application.Controllers
         // GET: LibraryResources
         public async Task<IActionResult> Index()
         {
-            /*            if (!itIsEmpty)
-                        {
-                            _context.RemoveRange(_context.LibraryResource.ToList());
-                            _context.SaveChanges();
-                        }*/
+/*            if (!itIsEmpty)
+            {
+                _context.RemoveRange(_context.LibraryResource.ToList());
+                _context.SaveChanges();
+            }*/
             return View(await _context.LibraryResource.ToListAsync());
         }
 
