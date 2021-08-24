@@ -45,7 +45,6 @@ namespace Team2Application.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create()
         {
-            this.AddingSkills("C#");
             return RedirectToAction(nameof(Index));
         }
 

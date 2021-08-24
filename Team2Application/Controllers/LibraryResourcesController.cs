@@ -25,9 +25,9 @@ namespace Team2Application.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<LibraryResource> Get()
+        public IEnumerable<LibraryResource> Get(int id)
         {
-            string skillName = _context.Skill.ToList().First().Name;
+            string skillName = _context.Skill.ToList()[id].Name;
             var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search={skillName}");
             client.Authenticator = new HttpBasicAuthenticator("CkaIqUMDHO4Dp96Xc2z1Lwg9BcwS3etRvtHHuGUE", "0iS2boCGNqVoTap046T1r9UzJsVMXxxu4WOwTQDhWpaGrnZCRrwFSlL7YraegarBLM5Qcwq5bm9tAnVRQ2Yh60OExsVZRdXnVrwDub26yLdO0If4ieZ9sBWDmajn7Qq4");
             client.Timeout = -1;
@@ -62,8 +62,17 @@ namespace Team2Application.Controllers
         }
 
         // GET: LibraryResources
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id)
         {
+            List<LibraryResource> libraryResourcesList = this.Get(id-1).ToList();
+            _context.RemoveRange(_context.LibraryResource.ToList());
+            _context.SaveChanges();
+            foreach (LibraryResource l in libraryResourcesList)
+            {
+                _context.Add(l);
+            }
+            _context.SaveChanges();
+            
             return View(await _context.LibraryResource.ToListAsync());
         }
 
@@ -88,7 +97,7 @@ namespace Team2Application.Controllers
         // POST: LibraryResources/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+/*        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create()
         {
@@ -102,7 +111,7 @@ namespace Team2Application.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
-        }
+        }*/
 
         // GET: LibraryResources/Edit/5
         public async Task<IActionResult> Edit(int? id)
