@@ -38,7 +38,7 @@ namespace Team2Application
                 c.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
             });
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
+                options.UseNpgsql(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
