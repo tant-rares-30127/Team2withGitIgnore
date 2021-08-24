@@ -25,8 +25,8 @@ namespace Team2Application.Controllers
         [HttpPost]
         public void AddingSkills(string skillName)
         {
-            var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search={skillName}");
-            string url = $"https://www.udemy.com/courses/search/?src=ukw&q={skillName}";
+            string url = $"https://www.udemy.com/courses/search/?src=ukw&q={skillName.Replace("#", "%23")}";
+            var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search={skillName.Replace("#", "%23")}");
             Skill skill = new Skill(skillName, url, $"{skillName} courses");
             _context.Add(skill);
             _context.SaveChanges();
