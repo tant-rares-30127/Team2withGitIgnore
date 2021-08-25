@@ -28,7 +28,9 @@ namespace Team2Application.Controllers
         public IEnumerable<LibraryResource> Get(int id)
         {
             string skillName = _context.Skill.ToList()[id].Name;
-            var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search={skillName.Replace("#", "%23")}");
+            string skillNameForUrl = skillName.Replace(" ", "%20");
+            skillNameForUrl = skillNameForUrl.Replace("#", "%23");
+            var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search={skillNameForUrl}");
             client.Authenticator = new HttpBasicAuthenticator("CkaIqUMDHO4Dp96Xc2z1Lwg9BcwS3etRvtHHuGUE", "0iS2boCGNqVoTap046T1r9UzJsVMXxxu4WOwTQDhWpaGrnZCRrwFSlL7YraegarBLM5Qcwq5bm9tAnVRQ2Yh60OExsVZRdXnVrwDub26yLdO0If4ieZ9sBWDmajn7Qq4");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
