@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@model IEnumerable<IdentityUser>
+@model IEnumerable<UserDto>
 
     @{
         ViewData["Title"] = "Index";
@@ -18,7 +18,7 @@
                     @Html.DisplayNameFor(model => model.Email)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.UserName)
+                    @Html.DisplayNameFor(model => model.Role)
                 </th>
 @*                <th>
                     @Html.DisplayNameFor(model => model.Role)
@@ -34,7 +34,7 @@
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
+                    @Html.DisplayFor(modelItem => item.Role)
                 </td>
 @*                <td>
                     @Html.DisplayFor(modelItem => item.Role)

@@ -8,15 +8,18 @@ using Microsoft.EntityFrameworkCore;
 using Team2Application.Data;
 using Team2Application.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Team2Application.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class UsersController : Controller
     {
         private UserManager<IdentityUser> userManager;
         public static readonly string ADMIN_ROLE = "Administrator";
         public static readonly string REGULAR_USER_ROLE = "User";
         public static readonly string OPERATOR_ROLE = "Operator";
+        public static readonly string VISITOR_ROLE = "Visitor";
 
         public UsersController(UserManager<IdentityUser> userManager)
         {
@@ -34,6 +37,7 @@ namespace Team2Application.Controllers
             var user = await userManager.FindByIdAsync(id);
             await userManager.AddToRoleAsync(user, "Administrator");
             await userManager.AddToRoleAsync(user, "Operator");
+            await userManager.AddToRoleAsync(user, "User");
             return RedirectToAction(nameof(Index));
         }
 
@@ -51,15 +55,21 @@ namespace Team2Application.Controllers
             var user = await userManager.FindByIdAsync(id);
             await userManager.RemoveFromRoleAsync(user, "Administrator");
             await userManager.AddToRoleAsync(user, "Operator");
+            await userManager.AddToRoleAsync(user, "User");
             return RedirectToAction(nameof(Index));
         }
 
         private async Task<List<UserDto>> GetUsersWithRole()
         {
             List<UserDto> usersList = new List<UserDto>();
+            var allUsers = await userManager.Users.ToListAsync();
             var users = await userManager.GetUsersInRoleAsync(REGULAR_USER_ROLE);
             var admins = await userManager.GetUsersInRoleAsync(ADMIN_ROLE);
             var operators = await userManager.GetUsersInRoleAsync(OPERATOR_ROLE);
+
+            var visitors = allUsers.Except(users).ToList();
+            users = users.Except(operators).ToList();
+            operators = operators.Except(admins).ToList();
 
             foreach (var admin in admins)
             {
@@ -74,6 +84,11 @@ namespace Team2Application.Controllers
             foreach (var user in users)
             {
                 usersList.Add(new UserDto(user.Id, user.Email, REGULAR_USER_ROLE));
+            }
+
+            foreach (var visitor in visitors)
+            {
+                usersList.Add(new UserDto(visitor.Id, visitor.Email, VISITOR_ROLE));
             }
 
             return usersList;
