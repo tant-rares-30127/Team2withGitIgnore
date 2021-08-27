@@ -3,6 +3,21 @@
 ![example workflow](https://github.com/tant-rares-30127/Team2withGitIgnore/actions/workflows/dotnet.yml/badge.svg)
       Heroku deplyed app: https://team2application.herokuapp.com/
       
+## User types:
+```
+1.Administrator
+```
+Permissions: 
+      -view list of all registered users
+      -assign roles to users
+```
+2.Operator
+```
+
+```
+3.Regular User
+```
+
 ## How to deploy to Heroku
 
 1. Login to heroku 
