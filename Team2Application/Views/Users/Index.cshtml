@@ -1,5 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @model IEnumerable<UserDto>
+@*
+    @model IEnumerable<UserWithRole>
+@inject SignInManagerManager<IdentityUser> SignInManager*@
 
     @{
         ViewData["Title"] = "Index";
@@ -11,8 +14,8 @@
     <p>
         <a asp-action="Create">Create New</a>
     </p>
-    <table class="table">
-        <thead>
+<table class="table">
+    <thead>
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.Email)
@@ -20,37 +23,49 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Role)
                 </th>
-@*                <th>
-                    @Html.DisplayNameFor(model => model.Role)
-                </th>*@
-                <th></th>
+                <th>
+                    Change role
+                </th>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Role)
-                </td>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+         {
+         <tr>
+             <td>
+                 @Html.DisplayFor(modelItem => item.Email)
+             </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Role)
+             </td>
 @*                <td>
                     @Html.DisplayFor(modelItem => item.Role)
                 </td>*@
-            <td>
-                @*@if (item.Role.Equals("Administrator"))
-        {
-            <a asp-action="AssignUser" asp-route-id="@item.Id">Assign User</a>
-        }
-        else
-        {
-            <a asp-action="AssignAdmin" asp-route-id="@item.Id">Assign Administrator</a>
-        }*@
-                <a asp-action="AssignAdmin" asp-route-id="@item.Id">Assign Administrator</a>
-            </td>
-            </tr>
-            }
-        </tbody>
-    </table>
+             <td>
+                @if (item.Role.Equals("Administrator"))
+                {
+
+                     <a asp-action="AssignUser" asp-route-id="@item.Id">Assign User</a>
+                     <span> | </span>
+                     <a asp-action="AssignOperator" asp-route-id="@item.Id">Assign Operator</a>
+                 }
+                 else
+                 {
+                    @if (item.Role.Equals("Operator"))
+                    {
+                       <a asp-action="AssignAdmin" asp-route-id="@item.Id">Assign Administrator</a>
+                       <span> | </span>
+                       <a asp-action="AssignUser" asp-route-id="@item.Id">Assign User</a>
+                     }
+                    else
+                     {
+                         <a asp-action="AssignAdmin" asp-route-id="@item.Id">Assign Administrator</a>
+                         <span> | </span>
+                         <a asp-action="AssignOperator" asp-route-id="@item.Id">Assign Operator</a>
+                     }
+                 }
+             </td>
+         </tr>
+         }
+     </tbody>
+</table>
