@@ -1,5 +1,8 @@
 # Team2withGitIgnore
 
+![example workflow](https://github.com/tant-rares-30127/Team2withGitIgnore/actions/workflows/dotnet.yml/badge.svg)
+      Heroku deplyed app: https://team2application.herokuapp.com/
+      
 ## How to deploy to Heroku
 
 1. Login to heroku 
@@ -11,7 +14,7 @@ heroku login
 
 Build docker image:
 ```
-docker build -t team2application
+docker build -t team2application .
 ```
 
 3. Create and run docker container
