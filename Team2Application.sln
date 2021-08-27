@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Team2Tests", "Team2Tests\Team2Tests.csproj", "{0DE735AA-741F-4E65-A2D4-EEBD865BABDE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,10 +22,10 @@ Global
 		{22258CFA-1E2A-4EF0-AC35-E1D1AA297126}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22258CFA-1E2A-4EF0-AC35-E1D1AA297126}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22258CFA-1E2A-4EF0-AC35-E1D1AA297126}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0DE735AA-741F-4E65-A2D4-EEBD865BABDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0DE735AA-741F-4E65-A2D4-EEBD865BABDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0DE735AA-741F-4E65-A2D4-EEBD865BABDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0DE735AA-741F-4E65-A2D4-EEBD865BABDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{050C3009-2E39-429D-8DF6-746EEAFFD9A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{050C3009-2E39-429D-8DF6-746EEAFFD9A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{050C3009-2E39-429D-8DF6-746EEAFFD9A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{050C3009-2E39-429D-8DF6-746EEAFFD9A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
