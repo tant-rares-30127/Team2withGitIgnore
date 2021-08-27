@@ -67,7 +67,6 @@ namespace Team2Application.Controllers
             var admins = await userManager.GetUsersInRoleAsync(ADMIN_ROLE);
             var operators = await userManager.GetUsersInRoleAsync(OPERATOR_ROLE);
 
-            List<UserDto> allNonVisitors = new List<UserDto>();
             var visitors = allUsers.Except(users).ToList();
             visitors = visitors.Except(operators).ToList();
             visitors = visitors.Except(admins).ToList();
