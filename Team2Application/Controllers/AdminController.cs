@@ -1,57 +1,71 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json.Linq;
-using RestSharp;
-using RestSharp.Authenticators;
 using Team2Application.Data;
 using Team2Application.Models;
 
 namespace Team2Application.Controllers
 {
-    public class SkillsController : Controller
+    public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public SkillsController(ApplicationDbContext context)
+        public AdminController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        [HttpPost]
-        public void AddingSkills(string skillName)
-        {
-            string skillNameForUrl = skillName.Replace(" ", "+");
-            skillNameForUrl = skillNameForUrl.Replace("#", "%23");
-            string url = $"https://www.udemy.com/courses/search/?src=ukw&q={skillNameForUrl}";
-            /*var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search={skillName.Replace("#", "%23")}");*/
-            Skill skill = new Skill(skillName, url, $"{skillName} courses");
-            skill.Id = _context.Skill.ToList().Count + 1;
-            _context.Add(skill);
-            _context.SaveChanges();
-        }
-
-        // GET: Skills
+        // GET: Admin
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Skill.ToListAsync());
+            return View(await _context.Admin.ToListAsync());
         }
 
-        // POST: Skills/Create
+        // GET: Admin/Details/5
+        public async Task<IActionResult> Details(string? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var admin = await _context.Admin
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (admin == null)
+            {
+                return NotFound();
+            }
+
+            return View(admin);
+        }
+
+        // GET: Admin/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Admin/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create([Bind("Name,Id,Birthdate,EmailAddress")] Admin admin)
         {
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {
+                _context.Add(admin);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(admin);
         }
 
-        // GET: Skills/Edit/5
+        // GET: Admin/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -59,22 +73,22 @@ namespace Team2Application.Controllers
                 return NotFound();
             }
 
-            var skill = await _context.Skill.FindAsync(id);
-            if (skill == null)
+            var admin = await _context.Admin.FindAsync(id);
+            if (admin == null)
             {
                 return NotFound();
             }
-            return View(skill);
+            return View(admin);
         }
 
-        // POST: Skills/Edit/5
+        // POST: Admin/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Name,Id,Description,SkillMatrixUrl")] Skill skill)
+        public async Task<IActionResult> Edit(string id, [Bind("Name,Id,Birthdate,EmailAddress")] Admin admin)
         {
-            if (id != skill.Id)
+            if (id != admin.Id)
             {
                 return NotFound();
             }
@@ -83,12 +97,12 @@ namespace Team2Application.Controllers
             {
                 try
                 {
-                    _context.Update(skill);
+                    _context.Update(admin);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SkillExists(skill.Id))
+                    if (!AdminExists(admin.Id))
                     {
                         return NotFound();
                     }
@@ -99,41 +113,41 @@ namespace Team2Application.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(skill);
+            return View(admin);
         }
 
-        // GET: Skills/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // GET: Admin/Delete/5
+        public async Task<IActionResult> Delete(string? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var skill = await _context.Skill
+            var admin = await _context.Admin
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (skill == null)
+            if (admin == null)
             {
                 return NotFound();
             }
 
-            return View(skill);
+            return View(admin);
         }
 
-        // POST: Skills/Delete/5
+        // POST: Admin/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var skill = await _context.Skill.FindAsync(id);
-            _context.Skill.Remove(skill);
+            var admin = await _context.Admin.FindAsync(id);
+            _context.Admin.Remove(admin);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SkillExists(int id)
+        private bool AdminExists(string id)
         {
-            return _context.Skill.Any(e => e.Id == id);
+            return _context.Admin.Any(e => e.Id == id);
         }
     }
 }

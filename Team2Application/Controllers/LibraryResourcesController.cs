@@ -13,6 +13,8 @@ using Team2Application.Models;
 
 namespace Team2Application.Controllers
 {
+/*    [Route("api/[controller]")]
+    [ApiController]*/
     public class LibraryResourcesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,11 +24,13 @@ namespace Team2Application.Controllers
             _context = context;
         }
 
-
         [HttpGet]
-        public IEnumerable<LibraryResource> Get()
+        public IEnumerable<LibraryResource> Get(int id)
         {
-            var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search=C#");
+            string skillName = _context.Skill.ToList()[id].Name;
+            string skillNameForUrl = skillName.Replace(" ", "%20");
+            skillNameForUrl = skillNameForUrl.Replace("#", "%23");
+            var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search={skillNameForUrl}");
             client.Authenticator = new HttpBasicAuthenticator("CkaIqUMDHO4Dp96Xc2z1Lwg9BcwS3etRvtHHuGUE", "0iS2boCGNqVoTap046T1r9UzJsVMXxxu4WOwTQDhWpaGrnZCRrwFSlL7YraegarBLM5Qcwq5bm9tAnVRQ2Yh60OExsVZRdXnVrwDub26yLdO0If4ieZ9sBWDmajn7Qq4");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
@@ -60,13 +64,17 @@ namespace Team2Application.Controllers
         }
 
         // GET: LibraryResources
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id)
         {
-            /*            if (!itIsEmpty)
-                        {
-                            _context.RemoveRange(_context.LibraryResource.ToList());
-                            _context.SaveChanges();
-                        }*/
+            List<LibraryResource> libraryResourcesList = this.Get(id-1).ToList();
+            _context.RemoveRange(_context.LibraryResource.ToList());
+            _context.SaveChanges();
+            foreach (LibraryResource l in libraryResourcesList)
+            {
+                _context.Add(l);
+            }
+            _context.SaveChanges();
+            
             return View(await _context.LibraryResource.ToListAsync());
         }
 
@@ -91,10 +99,12 @@ namespace Team2Application.Controllers
         // POST: LibraryResources/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+/*        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create()
         {
+            _context.RemoveRange(_context.LibraryResource.ToList());
+            _context.SaveChanges();
             IEnumerable<LibraryResource> coursesList = this.Get();
             foreach (LibraryResource l in coursesList)
             {
@@ -103,7 +113,7 @@ namespace Team2Application.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
-        }
+        }*/
 
         // GET: LibraryResources/Edit/5
         public async Task<IActionResult> Edit(int? id)
