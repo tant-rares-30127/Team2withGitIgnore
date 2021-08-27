@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using Team2Application.Models;
 
 namespace Team2Application.Controllers
 {
+    [Authorize(Roles = "User, Operator")]
     public class InternsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -26,6 +28,7 @@ namespace Team2Application.Controllers
         }
 
         // GET: Interns/Details/5
+        [Authorize(Roles = "Operator")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,6 +47,7 @@ namespace Team2Application.Controllers
         }
 
         // GET: Interns/Create
+        [Authorize(Roles = "Operator")]
         public IActionResult Create()
         {
             return View();
@@ -54,6 +58,7 @@ namespace Team2Application.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Operator")]
         public async Task<IActionResult> Create([Bind("Name,Id,Birthdate,EmailAddress")] Intern intern)
         {
             if (ModelState.IsValid)
@@ -66,6 +71,7 @@ namespace Team2Application.Controllers
         }
 
         // GET: Interns/Edit/5
+        [Authorize(Roles = "Operator")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -86,6 +92,7 @@ namespace Team2Application.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Operator")]
         public async Task<IActionResult> Edit(int id, [Bind("Name,Id,Birthdate,EmailAddress")] Intern intern)
         {
             if (id != intern.Id)
@@ -117,6 +124,7 @@ namespace Team2Application.Controllers
         }
 
         // GET: Interns/Delete/5
+        [Authorize(Roles = "Operator")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -137,6 +145,7 @@ namespace Team2Application.Controllers
         // POST: Interns/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Operator")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var intern = await _context.Intern.FindAsync(id);

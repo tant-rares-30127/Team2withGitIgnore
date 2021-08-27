@@ -36,8 +36,8 @@ namespace Team2Application.Controllers
         {
             var user = await userManager.FindByIdAsync(id);
             await userManager.AddToRoleAsync(user, "Administrator");
-            await userManager.AddToRoleAsync(user, "Operator");
-            await userManager.AddToRoleAsync(user, "User");
+            await userManager.RemoveFromRoleAsync(user, "Operator");
+            await userManager.RemoveFromRoleAsync(user, "User");
             return RedirectToAction(nameof(Index));
         }
 
@@ -55,7 +55,7 @@ namespace Team2Application.Controllers
             var user = await userManager.FindByIdAsync(id);
             await userManager.RemoveFromRoleAsync(user, "Administrator");
             await userManager.AddToRoleAsync(user, "Operator");
-            await userManager.AddToRoleAsync(user, "User");
+            await userManager.RemoveFromRoleAsync(user, "User");
             return RedirectToAction(nameof(Index));
         }
 
@@ -67,9 +67,10 @@ namespace Team2Application.Controllers
             var admins = await userManager.GetUsersInRoleAsync(ADMIN_ROLE);
             var operators = await userManager.GetUsersInRoleAsync(OPERATOR_ROLE);
 
+            List<UserDto> allNonVisitors = new List<UserDto>();
             var visitors = allUsers.Except(users).ToList();
-            users = users.Except(operators).ToList();
-            operators = operators.Except(admins).ToList();
+            visitors = visitors.Except(operators).ToList();
+            visitors = visitors.Except(admins).ToList();
 
             foreach (var admin in admins)
             {
