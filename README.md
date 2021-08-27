@@ -1,7 +1,7 @@
 # Team2withGitIgnore
 
 ![example workflow](https://github.com/tant-rares-30127/Team2withGitIgnore/actions/workflows/dotnet.yml/badge.svg)
-      Heroku deplyed app: https://team2application.herokuapp.com/
+      Heroku deployed app: https://team2application.herokuapp.com/
       
 ## User types:
 ```
