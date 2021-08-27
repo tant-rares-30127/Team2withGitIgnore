@@ -24,7 +24,7 @@
     </thead>
     <tbody>
         @foreach (var item in Model)
-         {
+        {
          <tr>
              <td>
                  @Html.DisplayFor(modelItem => item.Email)
@@ -33,8 +33,9 @@
                 @Html.DisplayFor(modelItem => item.Role)
              </td>
              <td>
-                @if (item.Role.Equals("Administrator"))
-                {
+                 @if(User.Identity.Name != item.Email)
+                 @if (item.Role.Equals("Administrator"))
+                 {
 
                      <a asp-action="AssignUser" asp-route-id="@item.Id">Assign User</a>
                      <span> | </span>
@@ -42,13 +43,13 @@
                  }
                  else
                  {
-                    @if (item.Role.Equals("Operator"))
-                    {
-                       <a asp-action="AssignAdmin" asp-route-id="@item.Id">Assign Administrator</a>
-                       <span> | </span>
-                       <a asp-action="AssignUser" asp-route-id="@item.Id">Assign User</a>
+                     @if (item.Role.Equals("Operator"))
+                     {
+                         <a asp-action="AssignAdmin" asp-route-id="@item.Id">Assign Administrator</a>
+                         <span> | </span>
+                         <a asp-action="AssignUser" asp-route-id="@item.Id">Assign User</a>
                      }
-                    else
+                     else
                      {
                          <a asp-action="AssignAdmin" asp-route-id="@item.Id">Assign Administrator</a>
                          <span> | </span>
