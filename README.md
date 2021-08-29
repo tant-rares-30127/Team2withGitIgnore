@@ -7,21 +7,21 @@
 ## User types:
 
 ```
-###1. Administrator
+### Administrator
 ```
 Permissions: 
 - view list of all registered users
 - assign roles to users
 
 ```
-###2. Operator
+### Operator
 ```
 Permissions: 
 - CRUD operations on all entities
 - assign roles to users
 
 ```
-###3. Regular User
+### Regular User
 ```
 Permissions: 
 - see informations about all entities in readonly mode and every moment have actual information from server 
