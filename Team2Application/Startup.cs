@@ -60,6 +60,8 @@ namespace Team2Application
 
             services.AddSignalR();
             services.AddSingleton<IInternBroadcastService, InternBroadcastService>();
+            services.AddSingleton<ILibraryResourceBroadcastService, LibraryResourceBroadcastService>();
+            services.AddSingleton<ISkillBroadcastService, SkillBroadcastService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
