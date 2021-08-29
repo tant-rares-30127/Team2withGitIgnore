@@ -55,14 +55,16 @@
                 <span>
                     |
                 </span>
-
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                                <span>
-                    |
-                </span>
                  }
                 <a asp-controller="LibraryResources" asp-action="Index" asp-route-id="@item.Id">Details</a>
 
+                @if (User.IsInRole("Operator"))
+                {
+                 <span>
+                    |
+                </span>
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                }
             </td>
             </tr>
                     
