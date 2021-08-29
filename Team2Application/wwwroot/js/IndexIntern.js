@@ -15,7 +15,10 @@
         console.log(`intern deleted`);
     })
 
-    connection.on("InternUpdated", updateIntern);
+    connection.on("InternUpdated", function(id, name, birthDate, emailAddress){
+        updateIntern(id, name, birthDate, emailAddress);
+        console.log(`intern updated`);
+    })
 });
 
 function createNewIntern(id, name, birthDate, emailAddress) {
@@ -40,8 +43,9 @@ function createNewIntern(id, name, birthDate, emailAddress) {
 function deleteIntern(id) {
     $(`tr[intern-id=${id}]`).remove();
 }
+
 function updateIntern(id, name, birthDate, emailAddress) {
-    $(`td[intern-name=${id}]`).text(name);
-    $(`td[intern-birthdate=${id}]`).text(birthDate);
-    $(`td[intern-emailaddress=${id}]`).text(emailAddress);
+    $(`tr[intern-id=${id}]`).find(".intern-name").text(name);
+    $(`tr[intern-id=${id}]`).find(".intern-birthdate").text(birthDate);
+    $(`tr[intern-id=${id}]`).find(".intern-emailaddress").text(emailAddress);
 }

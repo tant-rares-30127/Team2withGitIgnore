@@ -109,6 +109,7 @@ namespace Team2Application.Controllers
                 try
                 {
                     _context.Update(intern);
+                    broadcastService.InternUpdated(intern.Id, intern.Name, intern.Birthdate, intern.EmailAddress);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -153,6 +154,7 @@ namespace Team2Application.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var intern = await _context.Intern.FindAsync(id);
+            broadcastService.InternDeleted(intern.Id);
             _context.Intern.Remove(intern);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

@@ -11,6 +11,7 @@ using RestSharp;
 using RestSharp.Authenticators;
 using Team2Application.Data;
 using Team2Application.Models;
+using Team2Application.Services;
 
 namespace Team2Application.Controllers
 {
@@ -18,10 +19,12 @@ namespace Team2Application.Controllers
     public class SkillsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ISkillBroadcastService broadcastService;
 
-        public SkillsController(ApplicationDbContext context)
+        public SkillsController(ApplicationDbContext context, ISkillBroadcastService broadcastService)
         {
             _context = context;
+            this.broadcastService = broadcastService;
         }
 
         [Authorize(Roles = "User, Operator")]
@@ -31,9 +34,9 @@ namespace Team2Application.Controllers
             string skillNameForUrl = skillName.Replace(" ", "+");
             skillNameForUrl = skillNameForUrl.Replace("#", "%23");
             string url = $"https://www.udemy.com/courses/search/?src=ukw&q={skillNameForUrl}";
-            /*var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search={skillName.Replace("#", "%23")}");*/
             Skill skill = new Skill(skillName, url, $"{skillName} courses");
             skill.Id = _context.Skill.ToList().Count + 1;
+            broadcastService.SkillAdded(skill.Id, skill.Name, skill.Description, skill.SkillMatrixUrl);
             _context.Add(skill);
             _context.SaveChanges();
         }
@@ -79,6 +82,7 @@ namespace Team2Application.Controllers
                 try
                 {
                     _context.Update(skill);
+                    broadcastService.SkillUpdated(skill.Id, skill.Name, skill.Description, skill.SkillMatrixUrl);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -124,6 +128,7 @@ namespace Team2Application.Controllers
         {
             var skill = await _context.Skill.FindAsync(id);
             _context.Skill.Remove(skill);
+            broadcastService.SkillDeleted(id);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
