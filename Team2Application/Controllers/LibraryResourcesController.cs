@@ -11,6 +11,7 @@ using RestSharp;
 using RestSharp.Authenticators;
 using Team2Application.Data;
 using Team2Application.Models;
+using Team2Application.Services;
 
 namespace Team2Application.Controllers
 {
@@ -19,10 +20,12 @@ namespace Team2Application.Controllers
     public class LibraryResourcesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILibraryResourceBroadcastService broadcastService;
 
-        public LibraryResourcesController(ApplicationDbContext context)
+        public LibraryResourcesController(ApplicationDbContext context, ILibraryResourceBroadcastService broadcastService)
         {
             _context = context;
+            this.broadcastService = broadcastService;
         }
 
         [HttpGet]
@@ -67,15 +70,21 @@ namespace Team2Application.Controllers
         // GET: LibraryResources
         public async Task<IActionResult> Index(int id)
         {
-            List<LibraryResource> libraryResourcesList = this.Get(id-1).ToList();
-            _context.RemoveRange(_context.LibraryResource.ToList());
-            _context.SaveChanges();
-            foreach (LibraryResource l in libraryResourcesList)
+            if (id != 0)
             {
-                _context.Add(l);
+                List<LibraryResource> libraryResourcesList = this.Get(id - 1).ToList();
+                _context.RemoveRange(_context.LibraryResource.ToList());
+                _context.SaveChanges();
+                int listNumber = 1;
+                foreach (LibraryResource l in libraryResourcesList)
+                {
+                    l.Id = listNumber;
+                    listNumber++;
+                    broadcastService.LibraryResourceAdded(l.Id, l.Name, l.Recommandation, l.Url);
+                    _context.Add(l);
+                }
+                _context.SaveChanges();
             }
-            _context.SaveChanges();
-            
             return View(await _context.LibraryResource.ToListAsync());
         }
 
@@ -133,6 +142,7 @@ namespace Team2Application.Controllers
                 try
                 {
                     _context.Update(libraryResource);
+                    broadcastService.LibraryResourceUpdated(libraryResource.Id, libraryResource.Name, libraryResource.Recommandation, libraryResource.Url);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -178,6 +188,7 @@ namespace Team2Application.Controllers
         {
             var libraryResource = await _context.LibraryResource.FindAsync(id);
             _context.LibraryResource.Remove(libraryResource);
+            broadcastService.LibraryResourceDeleted(libraryResource.Id);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
