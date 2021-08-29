@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Team2Application.Data;
 using Team2Application.Models;
+using Team2Application.Services;
 
 namespace Team2Application.Controllers
 {
@@ -15,10 +16,12 @@ namespace Team2Application.Controllers
     public class InternsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IInternBroadcastService broadcastService;
 
-        public InternsController(ApplicationDbContext context)
+        public InternsController(ApplicationDbContext context, IInternBroadcastService broadcastService)
         {
             _context = context;
+            this.broadcastService = broadcastService;
         }
 
         // GET: Interns
@@ -65,6 +68,7 @@ namespace Team2Application.Controllers
             {
                 _context.Add(intern);
                 await _context.SaveChangesAsync();
+                broadcastService.InternAdded(intern.Id, intern.Name, intern.Birthdate, intern.EmailAddress);
                 return RedirectToAction(nameof(Index));
             }
             return View(intern);

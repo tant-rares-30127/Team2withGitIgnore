@@ -7,10 +7,10 @@ namespace Team2Application.Services
 {
     public interface IInternBroadcastService
     {
-        void InternAdded(int id, string name, DateTime birthDate, string emailAddress, string githubUsername, int teamId);
+        void InternAdded(int id, string name, DateTime birthDate, string emailAddress);
 
         void InternDeleted(int id);
 
-        void InternUpdated(int id, string name, DateTime birthDate, string emailAddress, string githubUsername, int teamId);
+        void InternUpdated(int id, string name, DateTime birthDate, string emailAddress);
     }
 }

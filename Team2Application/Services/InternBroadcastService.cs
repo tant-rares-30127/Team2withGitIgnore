@@ -15,7 +15,7 @@ namespace Team2Application.Services
         {
             this.messageHub = messageHub;
         }
-        public void InternAdded(int id, string name, DateTime birthDate, string emailAddress, string githubUsername, int teamId)
+        public void InternAdded(int id, string name, DateTime birthDate, string emailAddress)
         {
             messageHub.Clients.All.SendAsync("InternAdded", id, name, birthDate, emailAddress);
         }
@@ -25,7 +25,7 @@ namespace Team2Application.Services
             messageHub.Clients.All.SendAsync("InternDeleted", id);
         }
 
-        public void InternUpdated(int id, string name, DateTime birthDate, string emailAddress, string githubUsername, int teamId)
+        public void InternUpdated(int id, string name, DateTime birthDate, string emailAddress)
         {
             messageHub.Clients.All.SendAsync("InternUpdated", id, name, birthDate, emailAddress);
         }
