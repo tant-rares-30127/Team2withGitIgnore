@@ -3,20 +3,44 @@
 ![example workflow](https://github.com/tant-rares-30127/Team2withGitIgnore/actions/workflows/dotnet.yml/badge.svg)
       Heroku deployed app: https://team2application.herokuapp.com/
       
+      
 ## User types:
-```
-1.Administrator
-```
-Permissions: 
-      -view list of all registered users
-      -assign roles to users
-```
-2.Operator
-```
 
 ```
-3.Regular User
+###1. Administrator
 ```
+Permissions: 
+- view list of all registered users
+- assign roles to users
+
+```
+###2. Operator
+```
+Permissions: 
+- CRUD operations on all entities
+- assign roles to users
+
+```
+###3. Regular User
+```
+Permissions: 
+- see informations about all entities in readonly mode and every moment have actual information from server 
+
+```
+### Visitor (not logged in)
+```
+Permissions: 
+- register to the system
+- see privacy policies
+- see version of the product 
+
+```
+### DevOps (not logged in)
+```
+Permissions: 
+- access to deploy instructions and product version
+- specify version on deploy
+
 
 ## How to deploy to Heroku
 
