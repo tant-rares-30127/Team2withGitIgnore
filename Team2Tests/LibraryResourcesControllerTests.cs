@@ -31,7 +31,7 @@ namespace Team2Tests
             var udemyCoursesList = libraryResourcesController.ConvertResponseToCourseRecord(content);
 
             // Assert
-            Assert.Equal(10, udemyCoursesList.Count());
+            Assert.Equal(7, udemyCoursesList.Count());
 
             var firstUdemyCourse = udemyCoursesList.First();
 
