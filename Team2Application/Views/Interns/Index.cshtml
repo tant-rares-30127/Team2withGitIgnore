@@ -12,9 +12,11 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if (User.IsInRole("Operator"))
+    {<p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    }
 <table class="table table-striped table-bordered table-hover" id="internTableBodyId">
     <thead class="thead-dark">
         <tr>
@@ -55,7 +57,7 @@
                         <span> | </span>
                         <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                     }
-                    </td>
+                </td>
             </tr>
         }
     </tbody>
