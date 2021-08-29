@@ -1,0 +1,1042 @@
+﻿{
+  "count": 10000,
+  "next": "https://www.udemy.com/api-2.0/courses/?page=2&page_size=12&search=java",
+  "previous": null,
+  "results": [
+    {
+      "_class": "course",
+      "id": 533682,
+      "title": "Java Programming Masterclass covering Java 11 & Java 17",
+      "url": "/course/java-the-complete-java-developer-course/",
+      "is_paid": true,
+      "price": "€89.99",
+      "price_detail": {
+        "price_string": "€89.99",
+        "amount": 89.99,
+        "currency": "EUR",
+        "currency_symbol": "€"
+      },
+      "price_serve_tracking_id": "rEvlPLr5QgCGresWRJ4K2Q",
+      "visible_instructors": [
+        {
+          "title": "Tim Buchalka",
+          "_class": "user",
+          "name": "Tim",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/599932_71aa_5.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/599932_71aa_5.jpg",
+          "url": "/user/timbuchalka/",
+          "job_title": "Java Python Android and C# Expert Developer - 987K+ students",
+          "display_name": "Tim Buchalka",
+          "initials": "TB"
+        },
+        {
+          "title": "Tim Buchalka's Learn Programming Academy",
+          "_class": "user",
+          "name": "Tim Buchalka's Learn",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/35101150_6f0c_4.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/35101150_6f0c_4.jpg",
+          "url": "/user/learn-programming-academy/",
+          "job_title": "Professional Programmers and Teachers - 1.24M students",
+          "display_name": "Tim Buchalka's Learn Programming Academy",
+          "initials": "TP"
+        }
+      ],
+      "image_125_H": "https://img-c.udemycdn.com/course/125_H/533682_c10c_4.jpg",
+      "image_240x135": "https://img-c.udemycdn.com/course/240x135/533682_c10c_4.jpg",
+      "is_practice_test_course": false,
+      "image_480x270": "https://img-c.udemycdn.com/course/480x270/533682_c10c_4.jpg",
+      "published_title": "java-the-complete-java-developer-course",
+      "tracking_id": "MbF0tLVUS7GGCzQK2PzQSw",
+      "predictive_score": null,
+      "relevancy_score": null,
+      "input_features": null,
+      "lecture_search_result": null,
+      "curriculum_lectures": [],
+      "order_in_results": null,
+      "curriculum_items": [],
+      "headline": "Learn Java In This Course And Become a Computer Programmer. Obtain valuable Core Java Skills And Java Certification",
+      "instructor_name": null
+    },
+    {
+      "_class": "course",
+      "id": 358540,
+      "title": "Java In-Depth: Become a Complete Java Engineer!",
+      "url": "/course/java-in-depth-become-a-complete-java-engineer/",
+      "is_paid": true,
+      "price": "€94.99",
+      "price_detail": {
+        "price_string": "€94.99",
+        "amount": 94.99,
+        "currency": "EUR",
+        "currency_symbol": "€"
+      },
+      "price_serve_tracking_id": "ILPmNpiSTqSs22I3nVs2Ig",
+      "visible_instructors": [
+        {
+          "title": "Dheeru Mundluru",
+          "_class": "user",
+          "name": "Dheeru",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/9164404_c05c_4.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/9164404_c05c_4.jpg",
+          "url": "/user/dheerumundluru2/",
+          "job_title": "PhD, CTO & Principal Instructor at Semantic Square",
+          "display_name": "Dheeru Mundluru",
+          "initials": "DM"
+        }
+      ],
+      "image_125_H": "https://img-c.udemycdn.com/course/125_H/358540_d06b_11.jpg",
+      "image_240x135": "https://img-c.udemycdn.com/course/240x135/358540_d06b_11.jpg",
+      "is_practice_test_course": false,
+      "image_480x270": "https://img-c.udemycdn.com/course/480x270/358540_d06b_11.jpg",
+      "published_title": "java-in-depth-become-a-complete-java-engineer",
+      "tracking_id": "0UJwL-erRZ6E4Lc52-wMJA",
+      "predictive_score": null,
+      "relevancy_score": null,
+      "input_features": null,
+      "lecture_search_result": null,
+      "curriculum_lectures": [],
+      "order_in_results": null,
+      "curriculum_items": [],
+      "headline": "Comprehensive Java programming course integrated with design principles, best practices & instructor-led Java EE project",
+      "instructor_name": null
+    },
+    {
+      "_class": "course",
+      "id": 1535678,
+      "title": "Java Programming for Complete Beginners",
+      "url": "/course/java-programming-tutorial-for-beginners/",
+      "is_paid": true,
+      "price": "€99.99",
+      "price_detail": {
+        "price_string": "€99.99",
+        "amount": 99.99,
+        "currency": "EUR",
+        "currency_symbol": "€"
+      },
+      "price_serve_tracking_id": "1Pm1JG1YRdGKh_qD3PhanQ",
+      "visible_instructors": [
+        {
+          "title": "in28Minutes Official",
+          "_class": "user",
+          "name": "in28Minutes",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/13363166_a747.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/13363166_a747.jpg",
+          "url": "/user/in28minutes/",
+          "job_title": "DevOps, Azure, GCP, Docker, Kubernetes, Java & Spring Boot",
+          "display_name": "in28Minutes Official",
+          "initials": "IO"
+        }
+      ],
+      "image_125_H": "https://img-c.udemycdn.com/course/125_H/1535678_0ce9_7.jpg",
+      "image_240x135": "https://img-c.udemycdn.com/course/240x135/1535678_0ce9_7.jpg",
+      "is_practice_test_course": false,
+      "image_480x270": "https://img-c.udemycdn.com/course/480x270/1535678_0ce9_7.jpg",
+      "published_title": "java-programming-tutorial-for-beginners",
+      "tracking_id": "oxDOc5IGTfiCB2FKeb87zQ",
+      "predictive_score": null,
+      "relevancy_score": null,
+      "input_features": null,
+      "lecture_search_result": null,
+      "curriculum_lectures": [],
+      "order_in_results": null,
+      "curriculum_items": [],
+      "headline": "Java Programming Course for Beginners to Java Object Oriented Programming. BONUS: Build REST API with Spring Boot.",
+      "instructor_name": null
+    },
+    {
+      "_class": "course",
+      "id": 827692,
+      "title": "The Complete Java Certification Course",
+      "url": "/course/master-practical-java-development/",
+      "is_paid": true,
+      "price": "€104.99",
+      "price_detail": {
+        "price_string": "€104.99",
+        "amount": 104.99,
+        "currency": "EUR",
+        "currency_symbol": "€"
+      },
+      "price_serve_tracking_id": "o6LBa2K6SISCwZdvD1DffA",
+      "visible_instructors": [
+        {
+          "title": "Imtiaz Ahmad",
+          "_class": "user",
+          "name": "Imtiaz",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/7315098_7c17_3.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/7315098_7c17_3.jpg",
+          "url": "/user/imtiazahmad4/",
+          "job_title": "Senior Software Engineer & Trainer @ Job Ready Programmer",
+          "display_name": "Imtiaz Ahmad",
+          "initials": "IA"
+        }
+      ],
+      "image_125_H": "https://img-c.udemycdn.com/course/125_H/827692_91ad_2.jpg",
+      "image_240x135": "https://img-c.udemycdn.com/course/240x135/827692_91ad_2.jpg",
+      "is_practice_test_course": false,
+      "image_480x270": "https://img-c.udemycdn.com/course/480x270/827692_91ad_2.jpg",
+      "published_title": "master-practical-java-development",
+      "tracking_id": "Y8be9STwSBeUDHAbQ4BQVQ",
+      "predictive_score": null,
+      "relevancy_score": null,
+      "input_features": null,
+      "lecture_search_result": null,
+      "curriculum_lectures": [],
+      "order_in_results": null,
+      "curriculum_items": [],
+      "headline": "Become a confident industry ready core Java developer and get certified as a Java professional!",
+      "instructor_name": null
+    },
+    {
+      "_class": "course",
+      "id": 2707184,
+      "title": "Java Programming: Complete Beginner to Advanced",
+      "url": "/course/java-programming-complete-beginner-to-advanced/",
+      "is_paid": true,
+      "price": "€89.99",
+      "price_detail": {
+        "price_string": "€89.99",
+        "amount": 89.99,
+        "currency": "EUR",
+        "currency_symbol": "€"
+      },
+      "price_serve_tracking_id": "tB73scL1R2G6kIJ1qhrjwA",
+      "visible_instructors": [
+        {
+          "title": "CodeIn Academy",
+          "_class": "user",
+          "name": "CodeIn",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/97332300_0f28_3.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/97332300_0f28_3.jpg",
+          "url": "/user/codein-academy/",
+          "job_title": "Certified Java Software Engineers",
+          "display_name": "CodeIn Academy",
+          "initials": "CA"
+        }
+      ],
+      "image_125_H": "https://img-c.udemycdn.com/course/125_H/2707184_4c5e.jpg",
+      "image_240x135": "https://img-c.udemycdn.com/course/240x135/2707184_4c5e.jpg",
+      "is_practice_test_course": false,
+      "image_480x270": "https://img-c.udemycdn.com/course/480x270/2707184_4c5e.jpg",
+      "published_title": "java-programming-complete-beginner-to-advanced",
+      "tracking_id": "rOpB7O8KQPCHwrFdyDnCJA",
+      "predictive_score": null,
+      "relevancy_score": null,
+      "input_features": null,
+      "lecture_search_result": null,
+      "curriculum_lectures": [],
+      "order_in_results": null,
+      "curriculum_items": [],
+      "headline": "Become a Computer Programmer by Learning Core Java Skills",
+      "instructor_name": null
+    },
+    {
+      "_class": "course",
+      "id": 618736,
+      "title": "JSP, Servlets and JDBC for Beginners: Build a Database App",
+      "url": "/course/jsp-tutorial/",
+      "is_paid": true,
+      "price": "€94.99",
+      "price_detail": {
+        "price_string": "€94.99",
+        "amount": 94.99,
+        "currency": "EUR",
+        "currency_symbol": "€"
+      },
+      "price_serve_tracking_id": "IzNXFbxNRaa4JqbuGmDxnA",
+      "visible_instructors": [
+        {
+          "title": "Chad Darby",
+          "_class": "user",
+          "name": "Chad",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/7644438_8f29.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/7644438_8f29.jpg",
+          "url": "/user/chaddarby2/",
+          "job_title": "Popular Java Spring Instructor - Best Seller",
+          "display_name": "Chad Darby",
+          "initials": "CD"
+        }
+      ],
+      "image_125_H": "https://img-c.udemycdn.com/course/125_H/618736_237d_5.jpg",
+      "image_240x135": "https://img-c.udemycdn.com/course/240x135/618736_237d_5.jpg",
+      "is_practice_test_course": false,
+      "image_480x270": "https://img-c.udemycdn.com/course/480x270/618736_237d_5.jpg",
+      "published_title": "jsp-tutorial",
+      "tracking_id": "xGJcgHxNSdqcZBY88d8vEQ",
+      "predictive_score": null,
+      "relevancy_score": null,
+      "input_features": null,
+      "lecture_search_result": null,
+      "curriculum_lectures": [],
+      "order_in_results": null,
+      "curriculum_items": [],
+      "headline": "JSP: Covers JSP 2.3 and Servlets 3.1 - Most Popular JSP/Servlet course",
+      "instructor_name": null
+    },
+    {
+      "_class": "course",
+      "id": 2002954,
+      "title": "Learn Java Programming Crash Course",
+      "url": "/course/learn-java-programming-crash-course/",
+      "is_paid": true,
+      "price": "€89.99",
+      "price_detail": {
+        "price_string": "€89.99",
+        "amount": 89.99,
+        "currency_symbol": "€",
+        "currency": "EUR"
+      },
+      "price_serve_tracking_id": "qSciIcXzSM2-GVF0I9-5Lg",
+      "visible_instructors": [
+        {
+          "title": "Tim Buchalka",
+          "_class": "user",
+          "name": "Tim",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/599932_71aa_5.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/599932_71aa_5.jpg",
+          "url": "/user/timbuchalka/",
+          "job_title": "Java Python Android and C# Expert Developer - 987K+ students",
+          "display_name": "Tim Buchalka",
+          "initials": "TB"
+        },
+        {
+          "title": "Goran Lochert",
+          "_class": "user",
+          "name": "Goran",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/19087122_6d0f_2.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/19087122_6d0f_2.jpg",
+          "url": "/user/jojo-rabbit/",
+          "job_title": "Software Engineer | Unity Certified Expert Programmer",
+          "display_name": "Goran Lochert",
+          "initials": "GL"
+        },
+        {
+          "title": "Tim Buchalka's Learn Programming Academy",
+          "_class": "user",
+          "name": "Tim Buchalka's Learn",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/35101150_6f0c_4.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/35101150_6f0c_4.jpg",
+          "url": "/user/learn-programming-academy/",
+          "job_title": "Professional Programmers and Teachers - 1.24M students",
+          "display_name": "Tim Buchalka's Learn Programming Academy",
+          "initials": "TP"
+        }
+      ],
+      "image_125_H": "https://img-c.udemycdn.com/course/125_H/2002954_08e3.jpg",
+      "image_240x135": "https://img-c.udemycdn.com/course/240x135/2002954_08e3.jpg",
+      "is_practice_test_course": false,
+      "image_480x270": "https://img-c.udemycdn.com/course/480x270/2002954_08e3.jpg",
+      "published_title": "learn-java-programming-crash-course",
+      "tracking_id": "x2CyJvTyRzixUwgJEcTG2Q",
+      "predictive_score": null,
+      "relevancy_score": null,
+      "input_features": null,
+      "lecture_search_result": null,
+      "curriculum_lectures": [],
+      "order_in_results": null,
+      "curriculum_items": [],
+      "headline": "This Java For Beginners Course Includes Java Basics And Core Java Skills Training To Make You A Software Developer Fast",
+      "instructor_name": null
+    },
+    {
+      "_class": "course",
+      "id": 821986,
+      "title": "Complete Java SE 8 Developer Bootcamp - OCA Prep Included",
+      "url": "/course/learn-java-se-8-and-prepare-for-the-java-associate-exam/",
+      "is_paid": true,
+      "price": "€94.99",
+      "price_detail": {
+        "price_string": "€94.99",
+        "amount": 94.99,
+        "currency": "EUR",
+        "currency_symbol": "€"
+      },
+      "price_serve_tracking_id": "PWRI4LSJRMGCvn9wolTTsQ",
+      "visible_instructors": [
+        {
+          "title": "Intertech Training",
+          "_class": "user",
+          "name": "Intertech",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/21955768_0503_2.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/21955768_0503_2.jpg",
+          "url": "/user/intertech/",
+          "job_title": "Teaching & Training on Software Development Since 1991",
+          "display_name": "Intertech Training",
+          "initials": "IT"
+        },
+        {
+          "title": "Jeff Jensen",
+          "_class": "user",
+          "name": "Jeff",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/anonymous_3.png",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/anonymous_3.png",
+          "url": "/user/d0777e0d-b429-4058-8edd-e36cf5bf67b5/",
+          "job_title": "",
+          "display_name": "Jeff Jensen",
+          "initials": "JJ"
+        }
+      ],
+      "image_125_H": "https://img-c.udemycdn.com/course/125_H/821986_7b38_5.jpg",
+      "image_240x135": "https://img-c.udemycdn.com/course/240x135/821986_7b38_5.jpg",
+      "is_practice_test_course": false,
+      "image_480x270": "https://img-c.udemycdn.com/course/480x270/821986_7b38_5.jpg",
+      "published_title": "learn-java-se-8-and-prepare-for-the-java-associate-exam",
+      "tracking_id": "2aYa8rLLRJG7pFh3mO7fXQ",
+      "predictive_score": null,
+      "relevancy_score": null,
+      "input_features": null,
+      "lecture_search_result": null,
+      "curriculum_lectures": [],
+      "order_in_results": null,
+      "curriculum_items": [],
+      "headline": "Master the Foundations of Java and the Topics of the Oracle Certified Associate, Java SE 8 Programmer Exam (1Z0-808)",
+      "instructor_name": null
+    },
+    {
+      "_class": "course",
+      "id": 1358570,
+      "title": "Design Patterns in Java",
+      "url": "/course/design-patterns-java/",
+      "is_paid": true,
+      "price": "€94.99",
+      "price_detail": {
+        "price_string": "€94.99",
+        "amount": 94.99,
+        "currency": "EUR",
+        "currency_symbol": "€"
+      },
+      "price_serve_tracking_id": "wqT9pYa-T5Gua_uofSbf3A",
+      "visible_instructors": [
+        {
+          "title": "Dmitri Nesteruk",
+          "_class": "user",
+          "name": "Dmitri",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/525118_7a52_4.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/525118_7a52_4.jpg",
+          "url": "/user/dmitrinesteruk/",
+          "job_title": "Software/Hardware Engineering • Quant Finance • Algotrading",
+          "display_name": "Dmitri Nesteruk",
+          "initials": "DN"
+        }
+      ],
+      "image_125_H": "https://img-c.udemycdn.com/course/125_H/1358570_580e_8.jpg",
+      "image_240x135": "https://img-c.udemycdn.com/course/240x135/1358570_580e_8.jpg",
+      "is_practice_test_course": false,
+      "image_480x270": "https://img-c.udemycdn.com/course/480x270/1358570_580e_8.jpg",
+      "published_title": "design-patterns-java",
+      "tracking_id": "g-q7dhh0TYu3vBVD5-oBrg",
+      "predictive_score": null,
+      "relevancy_score": null,
+      "input_features": null,
+      "lecture_search_result": null,
+      "curriculum_lectures": [],
+      "order_in_results": null,
+      "curriculum_items": [],
+      "headline": "Discover the modern implementation of design patterns in Java",
+      "instructor_name": null
+    },
+    {
+      "_class": "course",
+      "id": 1993718,
+      "title": "Full Stack Java developer - Java + JSP + Restful WS + Spring",
+      "url": "/course/full-stack-java-developer-java/",
+      "is_paid": true,
+      "price": "€104.99",
+      "price_detail": {
+        "price_string": "€104.99",
+        "amount": 104.99,
+        "currency_symbol": "€",
+        "currency": "EUR"
+      },
+      "price_serve_tracking_id": "VW_RssVxR1aUZMI-VV3EhA",
+      "visible_instructors": [
+        {
+          "title": "StudyEasy Organisation",
+          "_class": "user",
+          "name": "StudyEasy",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/15843944_2e5c_7.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/15843944_2e5c_7.jpg",
+          "url": "/user/studyeasy/",
+          "job_title": "Fantastic content maker and fabulous presenters",
+          "display_name": "StudyEasy Organisation",
+          "initials": "SO"
+        },
+        {
+          "title": "Chaand Sheikh",
+          "_class": "user",
+          "name": "Chaand",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/23464438_e7fb_5.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/23464438_e7fb_5.jpg",
+          "url": "/user/chaand-sheikh/",
+          "job_title": "Best seller Instructor, Teaches more than 1,50,000+ students",
+          "display_name": "Chaand Sheikh",
+          "initials": "CS"
+        }
+      ],
+      "image_125_H": "https://img-c.udemycdn.com/course/125_H/1993718_b47a_3.jpg",
+      "image_240x135": "https://img-c.udemycdn.com/course/240x135/1993718_b47a_3.jpg",
+      "is_practice_test_course": false,
+      "image_480x270": "https://img-c.udemycdn.com/course/480x270/1993718_b47a_3.jpg",
+      "published_title": "full-stack-java-developer-java",
+      "tracking_id": "kCQkpPm2Raqf3Kau1Z6Y3A",
+      "predictive_score": null,
+      "relevancy_score": null,
+      "input_features": null,
+      "lecture_search_result": null,
+      "curriculum_lectures": [],
+      "order_in_results": null,
+      "curriculum_items": [],
+      "headline": "Full Stack Java developer - Core Java + JSP Servlets + Hibernate +Spring + Java Web-service/RestFul  API + Spring boot.",
+      "instructor_name": null
+    },
+    {
+      "_class": "course",
+      "id": 911256,
+      "title": "Core Java Made Easy (Covers the latest Java 15)",
+      "url": "/course/corejavamadeeasy/",
+      "is_paid": true,
+      "price": "€39.99",
+      "price_detail": {
+        "price_string": "€39.99",
+        "amount": 39.99,
+        "currency": "EUR",
+        "currency_symbol": "€"
+      },
+      "price_serve_tracking_id": "veDwqUQFSbaBt8D38mdOsQ",
+      "visible_instructors": [
+        {
+          "title": "Bharath Thippireddy",
+          "_class": "user",
+          "name": "Bharath",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/8735380_e11b_4.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/8735380_e11b_4.jpg",
+          "url": "/user/bharaththippireddy/",
+          "job_title": "IT Architect and Best Selling Instructor- 400000+ students",
+          "display_name": "Bharath Thippireddy",
+          "initials": "BT"
+        }
+      ],
+      "image_125_H": "https://img-c.udemycdn.com/course/125_H/911256_4d20_5.jpg",
+      "image_240x135": "https://img-c.udemycdn.com/course/240x135/911256_4d20_5.jpg",
+      "is_practice_test_course": false,
+      "image_480x270": "https://img-c.udemycdn.com/course/480x270/911256_4d20_5.jpg",
+      "published_title": "corejavamadeeasy",
+      "tracking_id": "Q798sCOUSUKg1dML9Eabqw",
+      "predictive_score": null,
+      "relevancy_score": null,
+      "input_features": null,
+      "lecture_search_result": null,
+      "curriculum_lectures": [],
+      "order_in_results": null,
+      "curriculum_items": [],
+      "headline": "Master java in quick and simple steps",
+      "instructor_name": null
+    },
+    {
+      "_class": "course",
+      "id": 2691654,
+      "title": "Java from Zero to First Job - Practical Guide, 700+ examples",
+      "url": "/course/java-development-for-beginners-learnit/",
+      "is_paid": true,
+      "price": "€89.99",
+      "price_detail": {
+        "price_string": "€89.99",
+        "amount": 89.99,
+        "currency": "EUR",
+        "currency_symbol": "€"
+      },
+      "price_serve_tracking_id": "5MM5AH6gSTui__WhlqFqUw",
+      "visible_instructors": [
+        {
+          "title": "Andrii Piatakha",
+          "_class": "user",
+          "name": "Andrii",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/84635850_a6a6.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/84635850_a6a6.jpg",
+          "url": "/user/andrii-piatakha/",
+          "job_title": "Founder and CEO in IT-Bulls, Founder of Learn-IT University",
+          "display_name": "Andrii Piatakha",
+          "initials": "AP"
+        },
+        {
+          "title": "Learn IT University",
+          "_class": "user",
+          "name": "Learn IT",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/146611910_2963.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/146611910_2963.jpg",
+          "url": "/user/learn-it-university/",
+          "job_title": "The Best Programming Courses",
+          "display_name": "Learn IT University",
+          "initials": "LU"
+        }
+      ],
+      "image_125_H": "https://img-c.udemycdn.com/course/125_H/2691654_2f52_3.jpg",
+      "image_240x135": "https://img-c.udemycdn.com/course/240x135/2691654_2f52_3.jpg",
+      "is_practice_test_course": false,
+      "image_480x270": "https://img-c.udemycdn.com/course/480x270/2691654_2f52_3.jpg",
+      "published_title": "java-development-for-beginners-learnit",
+      "tracking_id": "3MenOOCyTeuw54W6xeQ9HA",
+      "predictive_score": null,
+      "relevancy_score": null,
+      "input_features": null,
+      "lecture_search_result": null,
+      "curriculum_lectures": [],
+      "order_in_results": null,
+      "curriculum_items": [],
+      "headline": "Learn Java from scratch and become Java Software Engineer: Basics, OOP, Interview questions, Git, Java Collections etc",
+      "instructor_name": null
+    }
+  ],
+  "aggregations": [
+    {
+      "options": [
+        {
+          "count": 10000,
+          "title": "Paid",
+          "key": "price",
+          "value": "price-paid"
+        },
+        {
+          "count": 6219,
+          "title": "Free",
+          "key": "price",
+          "value": "price-free"
+        }
+      ],
+      "id": "price",
+      "title": "Price"
+    },
+    {
+      "options": [
+        {
+          "count": 8128,
+          "title": "All Levels",
+          "key": "instructional_level",
+          "value": "all"
+        },
+        {
+          "count": 7584,
+          "title": "Beginner",
+          "key": "instructional_level",
+          "value": "beginner"
+        },
+        {
+          "count": 2528,
+          "title": "Intermediate",
+          "key": "instructional_level",
+          "value": "intermediate"
+        },
+        {
+          "count": 358,
+          "title": "Expert",
+          "key": "instructional_level",
+          "value": "expert"
+        }
+      ],
+      "id": "instructional_level",
+      "title": "Level"
+    },
+    {
+      "options": [
+        {
+          "count": 10000,
+          "title": "Captions",
+          "key": "has_closed_caption",
+          "value": "true"
+        },
+        {
+          "count": 3828,
+          "title": "Quizzes",
+          "key": "has_simple_quiz",
+          "value": "true"
+        },
+        {
+          "count": 381,
+          "title": "Coding Exercises",
+          "key": "has_coding_exercises",
+          "value": "true"
+        }
+      ],
+      "id": "features",
+      "title": "Features"
+    },
+    {
+      "options": [
+        {
+          "count": 10000,
+          "title": "English",
+          "key": "language",
+          "value": "en"
+        },
+        {
+          "count": 1446,
+          "title": "Español",
+          "key": "language",
+          "value": "es"
+        },
+        {
+          "count": 1070,
+          "title": "Português",
+          "key": "language",
+          "value": "pt"
+        },
+        {
+          "count": 415,
+          "title": "Türkçe",
+          "key": "language",
+          "value": "tr"
+        },
+        {
+          "count": 309,
+          "title": "Deutsch",
+          "key": "language",
+          "value": "de"
+        },
+        {
+          "count": 288,
+          "title": "Русский",
+          "key": "language",
+          "value": "ru"
+        },
+        {
+          "count": 243,
+          "title": "中文",
+          "key": "language",
+          "value": "zh"
+        },
+        {
+          "count": 238,
+          "title": "Français",
+          "key": "language",
+          "value": "fr"
+        },
+        {
+          "count": 203,
+          "title": "Polski",
+          "key": "language",
+          "value": "pl"
+        },
+        {
+          "count": 201,
+          "title": "日本語",
+          "key": "language",
+          "value": "ja"
+        },
+        {
+          "count": 170,
+          "title": "العربية",
+          "key": "language",
+          "value": "ar"
+        },
+        {
+          "count": 169,
+          "title": "Italiano",
+          "key": "language",
+          "value": "it"
+        },
+        {
+          "count": 144,
+          "title": "Bahasa Indonesia",
+          "key": "language",
+          "value": "id"
+        },
+        {
+          "count": 127,
+          "title": "हिन्दी",
+          "key": "language",
+          "value": "hi"
+        },
+        {
+          "count": 93,
+          "title": "한국어",
+          "key": "language",
+          "value": "ko"
+        },
+        {
+          "count": 79,
+          "title": "தமிழ்",
+          "key": "language",
+          "value": "ta"
+        },
+        {
+          "count": 69,
+          "title": "Tiếng Việt",
+          "key": "language",
+          "value": "vi"
+        },
+        {
+          "count": 54,
+          "title": "Română",
+          "key": "language",
+          "value": "ro"
+        },
+        {
+          "count": 50,
+          "title": "Telugu",
+          "key": "language",
+          "value": "te"
+        },
+        {
+          "count": 41,
+          "title": "ภาษาไทย",
+          "key": "language",
+          "value": "th"
+        },
+        {
+          "count": 30,
+          "title": "Azərbaycan dili",
+          "key": "language",
+          "value": "az"
+        },
+        {
+          "count": 30,
+          "title": "اردو",
+          "key": "language",
+          "value": "ur"
+        },
+        {
+          "count": 26,
+          "title": "Malayāḷam",
+          "key": "language",
+          "value": "ml"
+        },
+        {
+          "count": 25,
+          "title": "Magyar",
+          "key": "language",
+          "value": "hu"
+        },
+        {
+          "count": 17,
+          "title": "मराठी",
+          "key": "language",
+          "value": "mr"
+        },
+        {
+          "count": 15,
+          "title": "‏עברית‏",
+          "key": "language",
+          "value": "he"
+        },
+        {
+          "count": 15,
+          "title": "Nederlands",
+          "key": "language",
+          "value": "nl"
+        },
+        {
+          "count": 11,
+          "title": "فارسی",
+          "key": "language",
+          "value": "fa"
+        },
+        {
+          "count": 9,
+          "title": "Ελληνικά",
+          "key": "language",
+          "value": "el"
+        },
+        {
+          "count": 7,
+          "title": "Bangla",
+          "key": "language",
+          "value": "bn"
+        },
+        {
+          "count": 5,
+          "title": "ગુજરાતી",
+          "key": "language",
+          "value": "gu"
+        },
+        {
+          "count": 4,
+          "title": "Српски",
+          "key": "language",
+          "value": "sr"
+        },
+        {
+          "count": 4,
+          "title": "Українська",
+          "key": "language",
+          "value": "uk"
+        },
+        {
+          "count": 3,
+          "title": "Afrikaans",
+          "key": "language",
+          "value": "af"
+        },
+        {
+          "count": 3,
+          "title": "Shqip",
+          "key": "language",
+          "value": "sq"
+        },
+        {
+          "count": 3,
+          "title": "O'zbek",
+          "key": "language",
+          "value": "uz"
+        },
+        {
+          "count": 2,
+          "title": "Български",
+          "key": "language",
+          "value": "bg"
+        },
+        {
+          "count": 2,
+          "title": "Hrvatski",
+          "key": "language",
+          "value": "hr"
+        },
+        {
+          "count": 2,
+          "title": "Kannaḍa",
+          "key": "language",
+          "value": "kn"
+        },
+        {
+          "count": 2,
+          "title": "Lietuvių",
+          "key": "language",
+          "value": "lt"
+        },
+        {
+          "count": 2,
+          "title": "پښتو",
+          "key": "language",
+          "value": "ps"
+        },
+        {
+          "count": 2,
+          "title": "Soomaaliga",
+          "key": "language",
+          "value": "so"
+        },
+        {
+          "count": 2,
+          "title": "Svenska",
+          "key": "language",
+          "value": "sv"
+        },
+        {
+          "count": 1,
+          "title": "Català",
+          "key": "language",
+          "value": "ca"
+        },
+        {
+          "count": 1,
+          "title": "Čeština",
+          "key": "language",
+          "value": "cs"
+        },
+        {
+          "count": 1,
+          "title": "ქართული",
+          "key": "language",
+          "value": "ka"
+        },
+        {
+          "count": 1,
+          "title": "Монгол",
+          "key": "language",
+          "value": "mn"
+        },
+        {
+          "count": 1,
+          "title": "Norsk",
+          "key": "language",
+          "value": "nb"
+        },
+        {
+          "count": 1,
+          "title": "नेपाली",
+          "key": "language",
+          "value": "ne"
+        },
+        {
+          "count": 1,
+          "title": "Slovenčina",
+          "key": "language",
+          "value": "sk"
+        },
+        {
+          "count": 1,
+          "title": "Filipino",
+          "key": "language",
+          "value": "tl"
+        }
+      ],
+      "id": "language",
+      "title": "Language"
+    },
+    {
+      "options": [
+        {
+          "count": 6113,
+          "title": "4.5 & up",
+          "key": "ratings",
+          "value": "4.5"
+        },
+        {
+          "count": 10000,
+          "title": "4.0 & up",
+          "key": "ratings",
+          "value": "4.0"
+        },
+        {
+          "count": 10000,
+          "title": "3.5 & up",
+          "key": "ratings",
+          "value": "3.5"
+        },
+        {
+          "count": 10000,
+          "title": "3.0 & up",
+          "key": "ratings",
+          "value": "3.0"
+        }
+      ],
+      "id": "ratings",
+      "title": "Ratings"
+    },
+    {
+      "options": [
+        {
+          "count": 4609,
+          "title": "0-1 Hour",
+          "key": "duration",
+          "value": "extraShort"
+        },
+        {
+          "count": 6701,
+          "title": "1-3 Hours",
+          "key": "duration",
+          "value": "short"
+        },
+        {
+          "count": 3153,
+          "title": "3-6 Hours",
+          "key": "duration",
+          "value": "medium"
+        },
+        {
+          "count": 2987,
+          "title": "6-17 Hours",
+          "key": "duration",
+          "value": "long"
+        },
+        {
+          "count": 1151,
+          "title": "17+ Hours",
+          "key": "duration",
+          "value": "extraLong"
+        }
+      ],
+      "id": "duration",
+      "title": "Duration"
+    }
+  ],
+  "search_tracking_id": "a8TNmYosSpqbd7PbLZpCzw"
+}

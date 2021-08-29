@@ -1,11 +1,10 @@
 using System;
-
 using Team2Application.Models;
 using Xunit;
 
 namespace Team2Tests
 {
-    public class Team2Tests
+    public class InternTests
     {
         [Fact]
         public void GettingAgeTest()

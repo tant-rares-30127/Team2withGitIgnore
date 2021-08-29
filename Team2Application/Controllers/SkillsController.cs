@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -22,53 +23,28 @@ namespace Team2Application.Controllers
             _context = context;
         }
 
+        [Authorize(Roles = "Administrator, Operator")]
+        [HttpPost]
+        public void AddingSkills(string skillName)
+        {
+            string skillNameForUrl = skillName.Replace(" ", "+");
+            skillNameForUrl = skillNameForUrl.Replace("#", "%23");
+            string url = $"https://www.udemy.com/courses/search/?src=ukw&q={skillNameForUrl}";
+            /*var client = new RestClient($"https://www.udemy.com/api-2.0/courses/?search={skillName.Replace("#", "%23")}");*/
+            Skill skill = new Skill(skillName, url, $"{skillName} courses");
+            skill.Id = _context.Skill.ToList().Count + 1;
+            _context.Add(skill);
+            _context.SaveChanges();
+        }
+
         // GET: Skills
         public async Task<IActionResult> Index()
         {
             return View(await _context.Skill.ToListAsync());
         }
 
-        // GET: Skills/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var skill = await _context.Skill
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (skill == null)
-            {
-                return NotFound();
-            }
-
-            return View(skill);
-        }
-
-        // GET: Skills/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Skills/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Id,Description,SkillMatrixUrl")] Skill skill)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(skill);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(skill);
-        }
-
         // GET: Skills/Edit/5
+        [Authorize(Roles = "Administrator, Operator")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -87,6 +63,7 @@ namespace Team2Application.Controllers
         // POST: Skills/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Administrator, Operator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Name,Id,Description,SkillMatrixUrl")] Skill skill)
@@ -120,6 +97,7 @@ namespace Team2Application.Controllers
         }
 
         // GET: Skills/Delete/5
+        [Authorize(Roles = "Administrator, Operator")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -140,6 +118,7 @@ namespace Team2Application.Controllers
         // POST: Skills/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator, Operator")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var skill = await _context.Skill.FindAsync(id);
