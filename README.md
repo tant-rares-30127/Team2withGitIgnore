@@ -7,27 +7,27 @@
 ## User types:
 
 ```
-### Administrator
+1. Administrator
 ```
 Permissions: 
 - view list of all registered users
 - assign roles to users
 
 ```
-### Operator
+2. Operator
 ```
 Permissions: 
 - CRUD operations on all entities
 - assign roles to users
 
 ```
-### Regular User
+3. Regular User
 ```
 Permissions: 
 - see informations about all entities in readonly mode and every moment have actual information from server 
 
 ```
-### Visitor (not logged in)
+4. Visitor (not logged in)
 ```
 Permissions: 
 - register to the system
@@ -35,7 +35,7 @@ Permissions:
 - see version of the product 
 
 ```
-### DevOps (not logged in)
+5. DevOps (not logged in)
 ```
 Permissions: 
 - access to deploy instructions and product version
