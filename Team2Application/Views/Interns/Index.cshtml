@@ -33,14 +33,14 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
+            <tr intern-id="@item.Id">
+                <td class="intern-name" intern-name="@item.Name">
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
-                <td>
+                <td class="intern-birthdate" intern-birthdate="@item.Birthdate">
                     @Html.DisplayFor(modelItem => item.Birthdate)
                 </td>
-                <td>
+                <td class="intern-emailaddress" intern-emailaddress="@item.EmailAddress">
                     @Html.DisplayFor(modelItem => item.EmailAddress)
                 </td>
                 <td>
