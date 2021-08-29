@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Team2Application.Data;
+using Team2Application.Services;
 
 namespace Team2Application
 {
@@ -23,6 +24,16 @@ namespace Team2Application
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+        }
+
+        public static string ConvertHerokuStringToASPNETString(string herokuConnectionString)
+        {
+            var databaseUri = new Uri(herokuConnectionString);
+            var split = databaseUri.UserInfo.Split(':');
+            var username = split[0];
+            var password = split[1];
+            var database = databaseUri.LocalPath.Split('/')[1];
+            return $"Server={databaseUri.Host};Port={databaseUri.Port};Database={database};SslMode=Require;Trust Server Certificate=true;Integrated Security=true;User Id={username};Password={password};";
         }
 
         public IConfiguration Configuration { get; }
@@ -46,6 +57,9 @@ namespace Team2Application
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            services.AddSignalR();
+            services.AddSingleton<IInternBroadcastService, InternBroadcastService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -78,6 +92,7 @@ namespace Team2Application
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                endpoints.MapHub<MessageHub>("/messagehub");
             });
         }
     }

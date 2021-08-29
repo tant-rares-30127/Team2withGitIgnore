@@ -14,6 +14,7 @@ using Team2Application.Models;
 
 namespace Team2Application.Controllers
 {
+    [Authorize(Roles = "User, Operator")]
     public class SkillsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -23,7 +24,7 @@ namespace Team2Application.Controllers
             _context = context;
         }
 
-        [Authorize(Roles = "Administrator, Operator")]
+        [Authorize(Roles = "User, Operator")]
         [HttpPost]
         public void AddingSkills(string skillName)
         {
@@ -44,7 +45,7 @@ namespace Team2Application.Controllers
         }
 
         // GET: Skills/Edit/5
-        [Authorize(Roles = "Administrator, Operator")]
+        [Authorize(Roles = "Operator")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -63,7 +64,7 @@ namespace Team2Application.Controllers
         // POST: Skills/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "Administrator, Operator")]
+        [Authorize(Roles = "Operator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Name,Id,Description,SkillMatrixUrl")] Skill skill)
@@ -97,7 +98,7 @@ namespace Team2Application.Controllers
         }
 
         // GET: Skills/Delete/5
-        [Authorize(Roles = "Administrator, Operator")]
+        [Authorize(Roles = "Operator")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -118,7 +119,7 @@ namespace Team2Application.Controllers
         // POST: Skills/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator, Operator")]
+        [Authorize(Roles = "Operator")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var skill = await _context.Skill.FindAsync(id);

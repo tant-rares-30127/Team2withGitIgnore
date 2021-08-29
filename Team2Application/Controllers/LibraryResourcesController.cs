@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -79,6 +80,7 @@ namespace Team2Application.Controllers
         }
 
         // GET: LibraryResources/Details/5
+        [Authorize(Roles = "Operator")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -96,26 +98,8 @@ namespace Team2Application.Controllers
             return View(libraryResource);
         }
 
-        // POST: LibraryResources/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-/*        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create()
-        {
-            _context.RemoveRange(_context.LibraryResource.ToList());
-            _context.SaveChanges();
-            IEnumerable<LibraryResource> coursesList = this.Get();
-            foreach (LibraryResource l in coursesList)
-            {
-                _context.Add(l);
-            }
-            await _context.SaveChangesAsync();
-
-            return RedirectToAction(nameof(Index));
-        }*/
-
         // GET: LibraryResources/Edit/5
+        [Authorize(Roles = "Operator")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -136,6 +120,7 @@ namespace Team2Application.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Operator")]
         public async Task<IActionResult> Edit(int id, [Bind("Name,Id,Recommandation,Url")] LibraryResource libraryResource)
         {
             if (id != libraryResource.Id)
@@ -167,6 +152,7 @@ namespace Team2Application.Controllers
         }
 
         // GET: LibraryResources/Delete/5
+        [Authorize(Roles = "Operator")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -187,6 +173,7 @@ namespace Team2Application.Controllers
         // POST: LibraryResources/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Operator")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var libraryResource = await _context.LibraryResource.FindAsync(id);
