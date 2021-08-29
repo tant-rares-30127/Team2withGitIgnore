@@ -91,4 +91,4 @@ docker build -t team2application .
 docker run -d -p 8081:80 --name team2application_container team2application
 ```
 
-Now, it runs locally and in order to make a Heroku deploy the steps 1 and those from 4 to 6 described above in 'How to deploy to Heroku' section have to be followed.
+Now, it runs locally and in order to make a Heroku deploy the step 1 and those from 4 to 6 described above in 'How to deploy to Heroku' section have to be followed.
