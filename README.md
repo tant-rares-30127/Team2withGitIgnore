@@ -75,3 +75,20 @@ heroku container:push -a team2application web
 ```
 heroku container:release -a team2application web
 ```
+
+
+## Deploy informations for DevOps:
+
+- set product version in cmd using following command:
+```
+dotnet build /p:AssemblyVersion={version}  ({version} has a similar format to '1.2.1.4')
+```
+
+- use local docker and add following commands in project's root opened cmd in order to build image and to create and run docker container:
+```
+docker build -t team2application .
+
+docker run -d -p 8081:80 --name team2application_container team2application
+```
+
+Now, it runs locally and in order to make a Heroku deploy the steps 1 and those from 4 to 6 described above in 'How to deploy to Heroku' section have to be followed.
