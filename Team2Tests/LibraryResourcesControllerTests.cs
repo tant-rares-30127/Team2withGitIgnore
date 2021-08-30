@@ -15,7 +15,7 @@ namespace Team2Tests
 {
     public class LibraryResourcesControllerTests
     {
-        [Fact()]
+        /*[Fact()]
         public void CheckConvertResponseToCourseRecord()
         {
             // Assume
@@ -40,7 +40,7 @@ namespace Team2Tests
             Assert.Equal("https://www.udemy.com/course/java-the-complete-java-developer-course/", firstUdemyCourse.Url);
 
 
-        }
+        }*/
 
         /*private string LoadUdemyCoursesListJsonFromResource()
         {
