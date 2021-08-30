@@ -89,7 +89,7 @@ namespace Team2Application.Controllers
         }
 
         // GET: LibraryResources/Details/5
-        [Authorize(Roles = "Operator")]
+        [Authorize(Roles = "Operator, User")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

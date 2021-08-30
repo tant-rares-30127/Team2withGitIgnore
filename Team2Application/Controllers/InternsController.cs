@@ -31,7 +31,7 @@ namespace Team2Application.Controllers
         }
 
         // GET: Interns/Details/5
-        [Authorize(Roles = "Operator")]
+        [Authorize(Roles = "Operator, User")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
