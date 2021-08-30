@@ -17,14 +17,16 @@ namespace Team2Application.Controllers
     {
         private UserManager<IdentityUser> userManager;
         public static readonly string ADMIN_ROLE = "Administrator";
-        public static readonly string REGULAR_USER_ROLE = "User";
         public static readonly string OPERATOR_ROLE = "Operator";
-        public static readonly string VISITOR_ROLE = "Visitor";
+        public static readonly string REGULAR_USER_ROLE = "User";
+        //public static readonly string VISITOR_ROLE = "Visitor";
 
         public UsersController(UserManager<IdentityUser> userManager)
         {
             this.userManager = userManager;
         }
+
+
 
         // GET: Users
         public async Task<IActionResult> Index()
@@ -63,13 +65,12 @@ namespace Team2Application.Controllers
         {
             List<UserDto> usersList = new List<UserDto>();
             var allUsers = await userManager.Users.ToListAsync();
-            var users = await userManager.GetUsersInRoleAsync(REGULAR_USER_ROLE);
             var admins = await userManager.GetUsersInRoleAsync(ADMIN_ROLE);
             var operators = await userManager.GetUsersInRoleAsync(OPERATOR_ROLE);
+            //var users = await userManager.GetUsersInRoleAsync(REGULAR_USER_ROLE);
 
-            var visitors = allUsers.Except(users).ToList();
-            visitors = visitors.Except(operators).ToList();
-            visitors = visitors.Except(admins).ToList();
+            var users = allUsers.Except(operators).ToList();
+            users = users.Except(admins).ToList();
 
             foreach (var admin in admins)
             {
@@ -86,11 +87,11 @@ namespace Team2Application.Controllers
                 usersList.Add(new UserDto(user.Id, user.Email, REGULAR_USER_ROLE));
             }
 
-            foreach (var visitor in visitors)
-            {
-                usersList.Add(new UserDto(visitor.Id, visitor.Email, VISITOR_ROLE));
-            }
-
+            //foreach (var visitor in visitors)
+            //{
+            //    usersList.Add(new UserDto(visitor.Id, visitor.Email, VISITOR_ROLE));
+            //}
+            
             return usersList;
         }
     }

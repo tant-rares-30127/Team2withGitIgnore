@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Team2Application.Models.Skill>
+@using Microsoft.AspNetCore.Identity
 
     @{
         ViewData["Title"] = "Index";
@@ -48,12 +49,27 @@
                     <td class="skill-skillMatrixUrl" skill-skillMatrixUrl="@item.SkillMatrixUrl">
                         <a href="@Html.DisplayFor(modelItem => item.SkillMatrixUrl)">@Html.DisplayFor(modelItem => item.SkillMatrixUrl)</a>
                     </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-controller="LibraryResources" asp-action="Index" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
-                </tr>
-            }
+
+            <td>
+                 @if (User.IsInRole("Operator"))
+                 {
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <span>
+                    |
+                </span>
+                 }
+                <a asp-controller="LibraryResources" asp-action="Index" asp-route-id="@item.Id">Details</a>
+
+                @if (User.IsInRole("Operator"))
+                {
+                 <span>
+                    |
+                </span>
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                }
+            </td>
+            </tr>
+                    
+                }
         </tbody>
     </table>
