@@ -15,7 +15,7 @@ namespace Team2Tests
 {
     public class LibraryResourcesControllerTests
     {
-        /*[Fact()]
+        [Fact()]
         public void CheckConvertResponseToCourseRecord()
         {
             // Assume
@@ -23,7 +23,7 @@ namespace Team2Tests
             var optionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
             optionBuilder.UseInMemoryDatabase("LibraryResourceListTests");
             var dbcontext = new ApplicationDbContext(optionBuilder.Options);
-            LibraryResourcesController libraryResourcesController = new LibraryResourcesController(dbcontext);
+            LibraryResourcesController libraryResourcesController = new LibraryResourcesController(dbcontext, null);
             //LibraryResourcesController libraryResourcesController = new LibraryResourcesController();
 
 
@@ -40,7 +40,7 @@ namespace Team2Tests
             Assert.Equal("https://www.udemy.com/course/java-the-complete-java-developer-course/", firstUdemyCourse.Url);
 
 
-        }*/
+        }
 
         /*private string LoadUdemyCoursesListJsonFromResource()
         {
