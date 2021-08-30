@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DocumentationFile>C:\Projects\Team2withGitIgnore\Team2Application\Team2Application.xml</DocumentationFile>
+	  <PlatformTarget>x64</PlatformTarget>
+    <DocumentationFile>C:\Projects\Team2Right\Team2withGitIgnore\Team2Application\Team2Application.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
