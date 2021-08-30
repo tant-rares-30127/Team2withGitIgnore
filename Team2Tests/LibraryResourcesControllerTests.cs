@@ -10,6 +10,7 @@ using Team2Application.Controllers;
 using Xunit;
 using Microsoft.EntityFrameworkCore;
 using Team2Application.Data;
+using Team2Application.Services;
 
 namespace Team2Tests
 {
@@ -23,7 +24,8 @@ namespace Team2Tests
             var optionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
             optionBuilder.UseInMemoryDatabase("LibraryResourceListTests");
             var dbcontext = new ApplicationDbContext(optionBuilder.Options);
-            LibraryResourcesController libraryResourcesController = new LibraryResourcesController(dbcontext);
+            ILibraryResourceBroadcastService broadcastService = null;
+            LibraryResourcesController libraryResourcesController = new LibraryResourcesController(dbcontext, broadcastService);
             //LibraryResourcesController libraryResourcesController = new LibraryResourcesController();
 
 
